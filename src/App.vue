@@ -1,10 +1,23 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> | 
-    <router-link to="/post">Post</router-link> | 
+    <router-link to="/post">Post</router-link> |
+    <input v-model="title" placeholder="検索" />
+    <button @click="">検索</button>
   </div>
   <router-view/>
 </template>
+
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  setup() {
+    
+  },
+})
+</script>
+
 
 <style lang="scss">
 #app {
