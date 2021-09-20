@@ -1,7 +1,15 @@
 <template>
     <div class="first">
+        <Conten2/>
         </div>
 </template>
-<style scoped>
+<script>
 
-</style>
+
+import Conten2 from "@/components/Conten2.vue";
+export default{
+    name:"Comntents",
+    components:{Conten2}
+};
+console.log("jfkajskf")
+</script>
