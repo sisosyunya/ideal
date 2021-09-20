@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <button @click="getCities()">aaaa</button>
+    <!-- <button @click="getCities()">aaaa</button> -->
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   //   msg: String,
   // },
 
-  setup() {
+  data() {
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const config = {
@@ -41,14 +41,6 @@ export default {
 
     // Get a list of cities from your database
     async function getCities() {
-      //   const citiesCol = collection(db, "cities");
-      //   const citySnapshot = await getDocs(citiesCol);
-      //   const cityList = citySnapshot.docs.map((doc) => doc.data());
-      //   return cityList;
-      // }
-      // Initialize Firebase
-      // const app = initializeApp(firebaseConfig);
-      // const analytics = getAnalytics(app);
 
       try {
         const docRef = await addDoc(collection(db, "users"), {
@@ -63,6 +55,10 @@ export default {
     }
     return {
       getCities,
+      firebaseApp,
+      firestore,
+      db,
+
     };
   },
 };
