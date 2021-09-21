@@ -62,7 +62,7 @@ export default {
   margin-right: 20px;
   margin-left: 20px;
   background: #f1fffa;
-  border-top: 6px solid #42b983;
+  border-top: 18px solid #36D9BA;
   box-shadow: 0 3px 4px rgb(0 0 0 / 32%);
 }
 .card:hover {
