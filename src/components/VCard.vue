@@ -49,7 +49,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .card {
   display: flex;
@@ -60,7 +59,7 @@ export default {
   margin-block: 10px;
   margin-right: 20px;
   margin-left: 20px;
-  background: #f1fffa;
+  background: #F1FFFA;
   border-top: 18px solid #36D9BA;
   box-shadow: 0 3px 4px rgb(0 0 0 / 32%);
 }
@@ -87,7 +86,6 @@ export default {
   border: none;
   border-radius: 5px;
 }
-
 .modaling {
   width: 550px;
   height: 400px;
@@ -95,11 +93,9 @@ export default {
   border: 1px solid #333;
   border-radius: 5px;
 }
-
 .modal__wrap {
   position: relative;
 }
-
 .modal__close {
   position: absolute;
   top: 110px;
@@ -115,27 +111,20 @@ export default {
   padding: 0;
   cursor: pointer;
 }
-
-
 .modal__close:hover {
   background-color: rgb(243, 222, 29);
   box-shadow: 1px 1px 12px rgba(243, 222, 29,.65);
 }
-
 button {
   margin-left: 15%;
   background-color: rgb(247, 207, 77);
   padding: 5px 10px;
   width: 16%;
 }
-
 button.modal__buy {
   margin-left: 38%;
   width: 16%;
   padding: 5px 10px;
   background-color: #36D9BA;
 }
-
-
-
 </style>
