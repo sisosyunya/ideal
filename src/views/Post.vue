@@ -6,7 +6,7 @@
       <input class="description" v-model="description" placeholder="詳細" />
       <p>販売価格</p>
       <input class="price" v-model="price" placeholder="価格" type="number" />
-      <button @click="addIdea">登録</button>
+      <button @click="addIdea" :disabled="deleteIsLoading">登録</button>
     </div>
 </template>
 
@@ -18,17 +18,21 @@ export default {
     data: ()=> ({
         title: "",
         description: "",
-        price: null
+        price: null,
+        deleteIsLoading:false
 
     }),
     methods: {
         async addIdea() {
+            console.log("aaa")
+            this.deleteIsLoading = true,
             await addDoc(collection(db, "ideas"), {
                 title: this.title,
                 description: this.description,
                 price: this.price
             })
             this.$router.push("/")
+            this.deleteIsLoading = false
         },
     }
 }
