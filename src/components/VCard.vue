@@ -6,7 +6,7 @@
         <div class="modal_wrap">
             <button class="modal__close" @click="() => isModal = false">×</button>
             <div class="modal">
-                <h3 class="modal__title">{{ idea.title }}<br>￥{{idea.price}} </h3>
+                <h3 class="modal__title">{{ idea.title }}<br>{{idea.price}} </h3>
                 <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
                 <button class="modal__buy" >購入する</button>
             </div>
