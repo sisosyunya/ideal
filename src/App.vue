@@ -10,6 +10,7 @@
 
 <script>
 import { defineComponent } from '@vue/composition-api'
+import {  } from "firebase/firestore";
 
 export default defineComponent({
   setup() {
