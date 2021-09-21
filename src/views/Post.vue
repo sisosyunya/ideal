@@ -2,6 +2,12 @@
     <div class="post">
       <p>タイトル</p>
       <input class="title" v-model="title" placeholder="タイトル" />
+      <p>カテゴリ</p>
+      <select v-model="category" class="category">
+        <option disabled value="">選択してください</option>
+        <option>自由研究</option>
+        <option>読書感想文</option>
+      </select>
       <p>内容</p>
       <input class="description" v-model="description" placeholder="詳細" />
       <p>販売価格</p>
@@ -17,6 +23,7 @@ export default {
     name: "Post",
     data: ()=> ({
         title: "",
+        category: "",
         description: "",
         price: null,
         deleteIsLoading:false

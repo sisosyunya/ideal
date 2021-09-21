@@ -1,4 +1,4 @@
-# ideal
+deleteIsLoading# ideal
 
 ## Project setup
 ```
