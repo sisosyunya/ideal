@@ -30,3 +30,15 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.post {
+    width: 80%;
+    height: 600px;
+    border: solid;
+    border-color: #61F0AD;
+    border-radius: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+</style>
