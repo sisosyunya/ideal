@@ -1,5 +1,8 @@
+
+
 <template>
     <div class="post">
+      <div class="space"></div>
       <p>タイトル</p>
       <input class="title" v-model="title" placeholder="タイトル" />
       <p>カテゴリ</p>
@@ -12,7 +15,7 @@
       <input class="description" v-model="description" placeholder="詳細" />
       <p>販売価格</p>
       <input class="price" v-model="price" placeholder="価格" type="number" />
-      <button @click="addIdea" :disabled="deleteIsLoading">登録</button>
+      <button class="btn" @click="addIdea" :disabled="deleteIsLoading">投稿</button>
     </div>
 </template>
 
@@ -54,6 +57,11 @@ export default {
     border-radius: 80px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 80px;
+}
+
+.space {
+  height: 40px;
 }
 
 .post p {
@@ -61,18 +69,45 @@ export default {
   font-size: 22px;
   font-weight: 600;
   color: #606060;
+  margin-left: 10%;
+  margin-top: 20px;
 }
 
 input.title {
   width: 78%;
   padding: 8px 10px;
-  
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+
+select.category {
+  margin-left: 10%;
+  margin-bottom: 20px;
 }
 
 input.description {
   width: 78%;
   padding: 8px 10px;
+  margin-left: 10%;
+  margin-bottom: 20px;
 }
 
+input.price {
+  width: 30%;
+  padding: 8px 10px;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  float: left;
+}
+
+button {
+  padding: 8px 40px;
+  margin-left: 80%;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #36D9BA;
+  border: none;
+}
 
 </style>
