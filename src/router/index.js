@@ -4,6 +4,8 @@ import Post from "../views/Post.vue"
 
 import Login from "../views/Login.vue"
 
+import Entrance from "../views/Entrance.vue"
+
 const routes = [
   {
     path: '/',
@@ -19,6 +21,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "/entrance",
+    name: "Entrance",
+    component: Entrance
   }
 ]
 
