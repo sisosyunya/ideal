@@ -1,16 +1,15 @@
 <template>
-  <div class="atama">
-    <img class="icon" src="./assets/icon.png" />
-  </div>
-  <div id="nav">
-    <router-link to="/">Home</router-link> | 
-    <router-link to="/post">Post</router-link> | 
-    <router-link to="/login">Login</router-link> |
-    <router-link to="/entrance">Entrance</router-link> |
 
-  </div>
-  <router-view/>
+  <router-view />
 </template>
+
+<script>
+import 'ress'
+
+export default {
+  
+}
+</script>
 
 <style lang="scss">
 #app {

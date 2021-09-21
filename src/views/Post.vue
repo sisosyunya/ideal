@@ -1,13 +1,22 @@
 
 
 <template>
+  <div class="atama">
+    <img class="icon" src="../assets/icon.png" />
+  </div>
+  <div id="nav">
+    <router-link to="/">Home</router-link> | 
+    <router-link to="/post">Post</router-link> | 
+    <router-link to="/login">Login</router-link> |
+    <router-link to="/entrance">Entrance</router-link> |
+  </div>
     <div class="post">
       <div class="space"></div>
       <p>タイトル</p>
       <input class="title" v-model="title" placeholder="タイトル" />
       <p>カテゴリ</p>
       <select v-model="category" class="category">
-        <option disabled value="">選択してください</option>
+        <option disabled value="">選択してください↓</option>
         <option>自由研究</option>
         <option>読書感想文</option>
       </select>
@@ -49,6 +58,15 @@ export default {
 </script>
 
 <style scoped>
+
+.conte
+
+input {
+    border :1px solid #606060;
+    border-color :#606060;
+    border-radius: 4px;
+
+}
 .post {
     width: 80%;
     height: 600px;
@@ -100,7 +118,7 @@ input.price {
   float: left;
 }
 
-button {
+.btn {
   padding: 8px 40px;
   margin-left: 80%;
   border-radius: 30px;
@@ -108,6 +126,12 @@ button {
   color: #ffffff;
   background-color: #36D9BA;
   border: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  opacity: 0.7;
 }
 
 </style>

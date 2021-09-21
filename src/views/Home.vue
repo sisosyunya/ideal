@@ -1,4 +1,13 @@
 <template>
+  <div class="atama">
+    <img class="icon" src="../assets/icon.png" />
+  </div>
+  <div id="nav">
+    <router-link to="/">Home</router-link> | 
+    <router-link to="/post">Post</router-link> | 
+    <router-link to="/login">Login</router-link> |
+    <router-link to="/entrance">Entrance</router-link> |
+  </div>
   <div class="container">
     <v-card v-for="(idea, i) in ideas" :key="i" :idea="idea" />
   </div>
@@ -31,16 +40,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   max-width: 1024px;
   margin: 0 auto;
+}
 
-  
+::v-deep .card {
+  transition: 0.3s;
 }
 </style>
-
 
