@@ -4,7 +4,7 @@
   </div>
   <div v-show="isModal" class="overlay">
     <div class="modal_wrap">
-      <button class="modal__close" @click="() => (isModal = false)">×</button>
+      <button class="modal__close" @click="reload() ; () => (isModal = false)">×</button>
       <div class="modal">
         <div v-show="Making" class="text">
           <h3 class="modal__title">{{ idea.title }}<br>￥{{ idea.price }}</h3>
@@ -47,6 +47,9 @@ export default {
         const Making = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(Making.data());
     },
+    async reload() {
+      this.$router.go({ path: "/", force: true });
+    }
   },
 };
 </script>
