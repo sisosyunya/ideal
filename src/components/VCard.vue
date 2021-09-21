@@ -6,13 +6,13 @@
     <div class="modal_wrap">
       <button class="modal__close" @click="() => (isModal = false)">×</button>
       <div class="modal">
-        <div v-show="Making">
-          <h3 class="modal__title">{{ idea.title }}<br />￥{{ idea.price }}</h3>
+        <div v-show="Making" class="text">
+          <h3 class="modal__title">{{ idea.title }}<br>￥{{ idea.price }}</h3>
           <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
           <button class="modal__buy" @click="Makenew">購入</button>
         </div>
         <div class="modaling" v-show="Making ===false">
-          <h3 class="modal__reeffect">{{ idea.description }}</h3>
+          <h3 class="modal__reeffect">{{ idea.title }}<br>{{ idea.description }}<br>￥{{ idea.price }}</h3>
         </div>
       </div>
       <!-- v-on ディレクティブを使うことで、DOM イベントの購読、イベント発火時の JavaScript の実行が可能になります。 -->
@@ -117,11 +117,6 @@ export default {
 }
 
 
-.modal__title {
-  width: 80%;
-  margin-top: 60px;
-}
-
 .modal__close:hover {
   background-color: rgb(243, 222, 29);
   box-shadow: 1px 1px 12px rgba(243, 222, 29,.65);
@@ -140,5 +135,7 @@ button.modal__buy {
   padding: 5px 10px;
   background-color: #36D9BA;
 }
+
+
 
 </style>
