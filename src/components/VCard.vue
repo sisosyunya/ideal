@@ -6,11 +6,10 @@
     <div class="modal_wrap">
       <button class="modal__close" @click="() => (isModal = false)">×</button>
       <div class="modal">
-
         <div v-show="Making">
           <h3 class="modal__title">{{ idea.title }}<br />￥{{ idea.price }}</h3>
           <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
-          <button class="modal__buy" @click="Makenew">購入する</button>
+          <button class="modal__buy" @click="Makenew">購入</button>
         </div>
         <div class="modaling" v-show="Making ===false">
           <h3 class="modal__reeffect">{{ idea.description }}</h3>
@@ -28,7 +27,7 @@ export default {
   data: () => ({
     isModal: false,
     deleteIsLoading: false,
-    Making: true,
+    Making: true
   }),
   // ここから下はしようしていない←なにこれ
   methods: {
@@ -82,29 +81,64 @@ export default {
   align-items: center;
 }
 .modal {
-  min-width: 200px;
-  max-width: 380px;
+  width: 550px;
+  height: 300px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.modaling {
+  width: 550px;
+  height: 400px;
   background-color: #fff;
   border: 1px solid #333;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .modal__wrap {
   position: relative;
 }
+
 .modal__close {
   position: absolute;
-  top: 10px;
+  top: 110px;
   right: 10px;
   width: 30px;
   height: 30px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgb(243, 222, 29, 0.7);
   border: 1px solid #333;
   border-radius: 9999px;
   font-weight: bold;
   font-size: 24px;
-  margin: 0;
+  margin-right: 25%;
   padding: 0;
   cursor: pointer;
 }
+
+
+.modal__title {
+  width: 80%;
+  margin-top: 60px;
+}
+
+.modal__close:hover {
+  background-color: rgb(243, 222, 29);
+  box-shadow: 1px 1px 12px rgba(243, 222, 29,.65);
+}
+
+button {
+  margin-left: 15%;
+  background-color: rgb(247, 207, 77);
+  padding: 5px 10px;
+  width: 16%;
+}
+
+button.modal__buy {
+  margin-left: 38%;
+  width: 16%;
+  padding: 5px 10px;
+  background-color: #36D9BA;
+}
+
 </style>
