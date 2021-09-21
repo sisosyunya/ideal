@@ -42,8 +42,9 @@ export default {
       this.deleteIsLoading = false;
     },
     async Makenew() {
-        this.Making=false;
-      const Making = await getDoc(doc(db, "ideas", this.idea.id));
+        this.Making = false
+        this.isModal = true
+        const Making = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(Making.data());
     },
   },
@@ -86,6 +87,10 @@ export default {
   background-color: #fff;
   border: none;
   border-radius: 5px;
+  padding-top: 50px;
+  padding-left: 65px;
+  padding-bottom: 100px;
+  line-height: 20px;
 }
 
 .modaling {
@@ -102,7 +107,7 @@ export default {
 
 .modal__close {
   position: absolute;
-  top: 110px;
+  top: 90px;
   right: 10px;
   width: 30px;
   height: 30px;
@@ -127,6 +132,9 @@ button {
   background-color: rgb(247, 207, 77);
   padding: 5px 10px;
   width: 16%;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-top: 100px;
 }
 
 button.modal__buy {
@@ -134,6 +142,9 @@ button.modal__buy {
   width: 16%;
   padding: 5px 10px;
   background-color: #36D9BA;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 
