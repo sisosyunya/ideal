@@ -55,6 +55,7 @@ export default {
 input.title {
   width: 78%;
   padding: 8px 10px;
+  
 }
 
 input.description {
