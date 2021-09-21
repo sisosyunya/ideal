@@ -7,25 +7,33 @@
             <button class="modal__close" @click="() => isModal = false">×</button>
             <div class="modal">
                 <h3 class="modal__title">{{ idea.title }}</h3>
+                <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { getDoc, doc } from "firebase/firestore"
+import { getDoc, doc, deleteDoc } from "firebase/firestore"
 import { db } from "../main"
 
 export default {
     props: ["idea"],
     data: ()=> ({
         isModal: false,
+        deleteIsLoading: false
     }),
-    // ここから下はしようしていない
+    // ここから下はしようしていない←なにこれ
     methods: {
         async fetchIdea() {
             const docSnap = await getDoc(doc(db, "ideas", this.idea.id));
             console.log(docSnap.data())
+        },
+        async deleteIdea() {
+            this.deleteIsLoading = true
+            await deleteDoc(doc(db, "ideas", this.idea.id));
+            this.$router.go({ path: "/", force: true})
+            this.deleteIsLoading = false
         }
     }
 }
