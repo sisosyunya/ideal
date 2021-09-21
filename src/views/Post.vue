@@ -10,13 +10,13 @@
 <script>
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../main';
-
 export default {
     name: "Post",
     data: ()=> ({
         title: "",
         description: "",
         price: null
+
     }),
     methods: {
         async addIdea() {
