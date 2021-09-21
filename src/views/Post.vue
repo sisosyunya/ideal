@@ -1,8 +1,8 @@
 <template>
     <div class="post">
-      <input v-model="title" placeholder="タイトル" />
-      <input v-model="description" placeholder="詳細" />
-      <input v-model="price" placeholder="価格" type="number" />
+      <input class="title" v-model="title" placeholder="タイトル" />
+      <input class="description" v-model="description" placeholder="詳細" />
+      <input class="price" v-model="price" placeholder="価格" type="number" />
       <button @click="addIdea">登録</button>
     </div>
 </template>
