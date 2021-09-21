@@ -16,7 +16,7 @@
       <input class="title" v-model="title" placeholder="タイトル" />
       <p>カテゴリ</p>
       <select v-model="category" class="category">
-        <option disabled value="">選択してください</option>
+        <option disabled value="">選択してください▼</option>
         <option>自由研究</option>
         <option>読書感想文</option>
       </select>
@@ -60,8 +60,10 @@ export default {
 <style scoped>
 
 .category {
-  border :1px solid black
-
+  padding: 5px 10px;
+  border :1px solid #606060;
+  border-color :#606060;
+  border-radius: 4px;
 }
 
 input {
