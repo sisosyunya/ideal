@@ -100,13 +100,17 @@ export default {
   background-color: #fff;
   border: 1px solid #333;
   border-radius: 5px;
+  padding-top: 50px;
+  padding-left: 65px;
+  padding-bottom: 100px;
+  line-height: 20px;
 }
 .modal__wrap {
   position: relative;
 }
 .modal__close {
   position: absolute;
-  top: 90px;
+  top: 10%;
   right: 10px;
   width: 30px;
   height: 30px;
