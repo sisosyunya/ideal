@@ -1,7 +1,9 @@
 <template>
-    <div class="card">
-        <h3 class="card__title">{{ idea.title }}</h3>
-    </div>
+    <router-link :to="`/contents/${idea.id}`">
+        <div class="card">
+            <h3 class="card__title">{{ idea.title }}</h3>
+        </div>
+    </router-link>
 </template>
 
 <script>

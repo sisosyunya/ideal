@@ -24,7 +24,7 @@ export default {
     async fetchIdeas() {
       const querySnapshot = await getDocs(collection(db, "ideas"));
       querySnapshot.forEach((doc) => {
-        this.ideas.push(doc.data());
+        this.ideas.push({ ...doc.data(), id: doc.id });
       });
     }
   }
