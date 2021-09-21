@@ -49,6 +49,8 @@ export default {
 }
 .card:hover {
     opacity: 0.5;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+	transform: translateY(-0.1875em);
 }
 .overlay {
     position: fixed;
