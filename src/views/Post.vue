@@ -53,7 +53,7 @@ export default {
     width: 80%;
     height: 600px;
     border: solid;
-    border-color: #61F0AD;
+    border-color: #36D9BA;
     border-radius: 80px;
     margin-right: auto;
     margin-left: auto;
