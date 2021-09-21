@@ -6,12 +6,14 @@
     <div class="back">
          <router-link to="/post">
             <div class="back-left">
-                <img class="dasu" onclick="goClick()" src="../assets/idea_dasu.png" />
+                <img class="dasu"  src="../assets/idea_dasu.png" />
+                <!-- onclick="goClick()" -->
             </div>
         </router-link> 
-         <router-link to="/">
+         <router-link to="/home">
             <div class="back-right">
-                <img class="miru" onclick="goClick()" src="../assets/idea_miru.png" />
+                <img class="miru"  src="../assets/idea_miru.png" />
+                <!-- onclick="goClick()" -->
             </div>
         </router-link> 
     </div>

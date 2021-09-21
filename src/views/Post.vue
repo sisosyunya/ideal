@@ -5,10 +5,10 @@
     <img class="icon" src="../assets/icon.png" />
   </div>
   <div id="nav">
-    <router-link to="/">Home</router-link> | 
-    <router-link to="/post">Post</router-link> | 
-    <router-link to="/login">Login</router-link> |
-    <router-link to="/entrance">Entrance</router-link> |
+    
+    <router-link to="/">トップ</router-link> |
+    <router-link to="/post">アイデアをだす</router-link> | 
+    <router-link to="/home">アイデアをみる</router-link> | 
   </div>
     <div class="post">
       <div class="space"></div>

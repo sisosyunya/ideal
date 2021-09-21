@@ -3,10 +3,9 @@
     <img class="icon" src="../assets/icon.png" />
   </div>
   <div id="nav">
-    <router-link to="/">Home</router-link> | 
-    <router-link to="/post">Post</router-link> | 
-    <router-link to="/login">Login</router-link> |
-    <router-link to="/entrance">Entrance</router-link> |
+    <router-link to="/">トップ</router-link> |
+    <router-link to="/home">アイデアをだす</router-link> | 
+    <router-link to="/post">アイデアをみる</router-link> | 
   </div>
   <div class="container">
     <v-card v-for="(idea, i) in ideas" :key="i" :idea="idea" />
@@ -19,7 +18,7 @@ import { db } from "../main"
 import VCard from "../components/VCard.vue"
 
 export default {
-  name: 'Test',
+  name: 'Home',
   components: {
     VCard
   },
