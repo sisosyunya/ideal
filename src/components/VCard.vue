@@ -8,7 +8,7 @@
             <div class="modal">
                 <h3 class="modal__title">{{ idea.title }}<br>{{idea.price}} </h3>
                 <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
-                <button class="modal__buy" >購入する</button>
+                <button class="modal__buy" @click="() =>isModal = false" >購入する</button>
             </div>
         </div>
     </div>
@@ -30,6 +30,12 @@ export default {
             console.log(docSnap.data())
         },
         async deleteIdea() {
+            this.deleteIsLoading = true
+            await deleteDoc(doc(db, "ideas", this.idea.id));
+            this.$router.go({ path: "/", force: true})
+            this.deleteIsLoading = false
+        },
+        async buyIdea(){
             this.deleteIsLoading = true
             await deleteDoc(doc(db, "ideas", this.idea.id));
             this.$router.go({ path: "/", force: true})
