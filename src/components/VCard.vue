@@ -16,7 +16,6 @@
 <script>
 import { getDoc, doc, deleteDoc } from "firebase/firestore"
 import { db } from "../main"
-
 export default {
     props: ["idea"],
     data: ()=> ({
@@ -48,11 +47,9 @@ export default {
     border-radius: 6px;
     height: 230px;
 }
-
 .card:hover {
     opacity: 0.5;
 }
-
 .overlay {
     position: fixed;
     top: 0;
@@ -64,7 +61,6 @@ export default {
     justify-content: center;
     align-items: center;
 }
-
 .modal {
     min-width: 200px;
     max-width: 380px;
@@ -72,11 +68,9 @@ export default {
     border: 1px solid #333;
     border-radius: 15px;
 }
-
 .modal__wrap {
     position: relative;
 }
-
 .modal__close {
     position: absolute;
     top: 10px;
