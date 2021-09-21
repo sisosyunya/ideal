@@ -43,9 +43,15 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #333;
-    border-radius: 6px;
+    border-radius: 6px;   
     height: 230px;
+    margin-block: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background : #f1fffa;
+    border-top: solid 6px #42b983;
+    box-shadow: 0 3px 4px rgb(0 0 0 / 32%);
+
 }
 .card:hover {
     opacity: 0.5;
