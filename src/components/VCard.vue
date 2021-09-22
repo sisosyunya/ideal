@@ -116,7 +116,7 @@ export default {
   width: 550px;
   height: 300px;
   background-color: #fff;
-  border: solid 1px #2c3e50;
+  
   border-radius: 5px;
   padding-top: 50px;
   padding-left: 15%;
@@ -135,8 +135,8 @@ export default {
   right: 10px;
   width: 30px;
   height: 30px;
-  background-color: rgb(243, 222, 29, 0.7);
-  border: 1px solid #333;
+  background-color: white;
+  border :none;
   border-radius: 9999px;
   font-weight: bold;
   font-size: 24px;
@@ -148,8 +148,8 @@ export default {
 }
 
 .modal__close:hover {
-  background-color: rgb(243, 222, 29);
-  box-shadow: 1px 1px 12px rgba(243, 222, 29, 0.65);
+    background-color: #CBC9C9;
+  
 }
 
 .modal p {
