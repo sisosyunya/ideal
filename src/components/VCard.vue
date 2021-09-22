@@ -147,9 +147,6 @@ export default {
   line-height: 30px;
 }
 
-.model__X {
-}
-
 .modal__close:hover {
   background-color: rgb(243, 222, 29);
   box-shadow: 1px 1px 12px rgba(243, 222, 29, 0.65);
