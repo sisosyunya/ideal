@@ -1,11 +1,8 @@
-
-
 <template>
   <div class="atama">
     <img class="icon" src="../assets/icon.png" />
   </div>
   <div id="nav">
-    
     <router-link to="/">トップ</router-link> |
     <router-link to="/post">アイデアをだす</router-link> | 
     <router-link to="/home">アイデアをみる</router-link> | 
@@ -27,7 +24,6 @@
       <button class="btn" @click="addIdea" :disabled="deleteIsLoading">投稿</button>
     </div>
 </template>
-
 <script>
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../main';
@@ -39,7 +35,6 @@ export default {
         description: "",
         price: null,
         deleteIsLoading:false
-
     }),
     methods: {
         async addIdea() {
@@ -56,21 +51,17 @@ export default {
     }
 }
 </script>
-
 <style scoped>
-
 .category {
   padding: 5px 10px;
   border :1px solid #606060;
   border-color :#606060;
   border-radius: 4px;
 }
-
 input {
     border :1px solid #606060;
     border-color :#606060;
     border-radius: 4px;
-
 }
 .post {
     width: 80%;
@@ -82,11 +73,9 @@ input {
     margin-left: auto;
     margin-bottom: 80px;
 }
-
 .space {
   height: 40px;
 }
-
 .post p {
   text-align: left;
   font-size: 22px;
@@ -95,26 +84,22 @@ input {
   margin-left: 10%;
   margin-top: 20px;
 }
-
 input.title {
   width: 78%;
   padding: 8px 10px;
   margin-left: 10%;
   margin-bottom: 20px;
 }
-
 select.category {
   margin-left: 10%;
   margin-bottom: 20px;
 }
-
 input.description {
   width: 78%;
   padding: 8px 10px;
   margin-left: 10%;
   margin-bottom: 20px;
 }
-
 input.price {
   width: 30%;
   padding: 8px 10px;
@@ -122,21 +107,18 @@ input.price {
   margin-bottom: 20px;
   float: left;
 }
-
 .btn {
   padding: 8px 40px;
   margin-left: 80%;
   border-radius: 30px;
   font-weight: 600;
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: #36D9BA;
   border: none;
   transition: 0.3s;
 }
-
 .btn:hover {
   transform: translateY(-5px);
   opacity: 0.7;
 }
-
 </style>
