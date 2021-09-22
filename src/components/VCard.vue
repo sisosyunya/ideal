@@ -198,5 +198,11 @@ button.modal__buy {
   border-radius: 5px;
   font-weight: 600;
   color: #ffffff;
+  transition: 0.3s;
+}
+
+button.modal__buy:hover {
+  transform: translateY(-5px);
+  opacity: 0.7;
 }
 </style>
