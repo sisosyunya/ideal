@@ -20,7 +20,7 @@
         <option>自由研究</option>
         <option>読書感想文</option>
       </select>
-      <p>内容</p>
+      <p>概要</p>
       <input class="description" v-model="description" placeholder="詳細" />
       <p>販売価格</p>
       <input class="price" v-model="price" placeholder="価格" type="number" />
