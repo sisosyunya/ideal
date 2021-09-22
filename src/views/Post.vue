@@ -67,6 +67,7 @@ textarea {
     border :1px solid #606060;
     border-color :#606060;
     border-radius: 4px;
+    resize: vertical;
 }
 .post {
     width: 80%;
