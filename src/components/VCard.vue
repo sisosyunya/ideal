@@ -4,7 +4,15 @@
   </div>
   <div v-show="isModal" class="overlay">
     <div class="modal_wrap">
-      <button class="modal__close" @click="reload() ; () => (isModal = false)">×</button>
+      <button
+        class="modal__close"
+        @click="
+          reload();
+          () => (isModal = false);
+        "
+      >
+        <span class="model__X">×</span>
+      </button>
       <div class="modal">
         <div v-show="Making" class="text">
           <h2 class="modal__title">{{ idea.title }}</h2>
@@ -13,8 +21,8 @@
           <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
           <button class="modal__buy" @click="Makenew">購入</button>
         </div>
-        <div class="modaling" v-show="Making ===false">
-          <h3 class="modal__title_2">{{ idea.title }}</h3>
+        <div class="modaling" v-show="Making === false">
+          <h2 class="modal__title_2">{{ idea.title }}</h2>
           <p>内容</p>
           <h3 class="modal__description_2">{{ idea.description }}</h3>
           <p>価格</p>
@@ -33,7 +41,7 @@ export default {
   data: () => ({
     isModal: false,
     deleteIsLoading: false,
-    Making: true
+    Making: true,
   }),
   // ここから下はしようしていない←なにこれ
   methods: {
@@ -48,14 +56,14 @@ export default {
       this.deleteIsLoading = false;
     },
     async Makenew() {
-        this.Making = false
-        this.isModal = true
-        const Making = await getDoc(doc(db, "ideas", this.idea.id));
+      this.Making = false;
+      this.isModal = true;
+      const Making = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(Making.data());
     },
     async reload() {
       this.$router.go({ path: "/", force: true });
-    }
+    },
   },
 };
 </script>
@@ -69,15 +77,17 @@ export default {
   margin-block: 10px;
   margin-right: 20px;
   margin-left: 20px;
-  background: #F1FFFA;
-  border-top: 18px solid #36D9BA;
+  background: #f1fffa;
+  border-top: 18px solid #36d9ba;
   box-shadow: 0 3px 4px rgb(0 0 0 / 32%);
 }
+
 .card:hover {
   opacity: 0.6;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
   transform: translateY(-0.1875em);
 }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -89,6 +99,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 .modal {
   width: 550px;
   height: 300px;
@@ -100,20 +111,24 @@ export default {
   padding-bottom: 100px;
   line-height: 20px;
 }
+
 .modaling {
   width: 550px;
   height: 300px;
   background-color: #fff;
-  border: solid 2px #2c3e50;
+  border: solid 1px #2c3e50;
   border-radius: 5px;
   padding-top: 50px;
-  padding-left: 65px;
-  padding-bottom: 100px;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 120px;
   line-height: 20px;
 }
+
 .modal__wrap {
   position: relative;
 }
+
 .modal__close {
   position: absolute;
   top: 8%;
@@ -128,13 +143,43 @@ export default {
   margin-right: 25%;
   padding: 0;
   cursor: pointer;
+  text-align: center;
+  line-height: 30px;
 }
+
+.model__X {
+}
+
 .modal__close:hover {
   background-color: rgb(243, 222, 29);
-  box-shadow: 1px 1px 12px rgba(243, 222, 29,.65);
+  box-shadow: 1px 1px 12px rgba(243, 222, 29, 0.65);
 }
 
+.modal p {
+  font-weight: 600;
+  font-size: 16px;
+  color: #36d9ba;
+  margin-bottom: 10px;
+}
 
+.modal__title {
+  margin-bottom: 30px;
+}
+
+.modal__title_2 {
+  margin-bottom: 30px;
+}
+
+.modal__description_2 {
+  margin-bottom: 30px;
+}
+
+.modaling p {
+  font-weight: 600;
+  font-size: 16px;
+  color: #36d9ba;
+  margin-bottom: 10px;
+}
 
 button {
   margin-left: 10%;
@@ -146,12 +191,13 @@ button {
   font-weight: 600;
   margin-top: 100px;
 }
+
 button.modal__buy {
   margin-left: 38%;
   width: 16%;
   padding: 5px 10px;
   border: none;
-  background-color: #36D9BA;
+  background-color: #36d9ba;
   border-radius: 5px;
   font-weight: 600;
   color: #ffffff;
