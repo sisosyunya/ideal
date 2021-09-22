@@ -7,12 +7,18 @@
       <button class="modal__close" @click="reload() ; () => (isModal = false)">×</button>
       <div class="modal">
         <div v-show="Making" class="text">
-          <h3 class="modal__title">{{ idea.title }}<br><br><br>￥{{ idea.price }}</h3>
+          <h2 class="modal__title">{{ idea.title }}</h2>
+          <p>価格</p>
+          <h3 class="modal__price">{{ idea.price }}</h3>
           <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
           <button class="modal__buy" @click="Makenew">購入</button>
         </div>
         <div class="modaling" v-show="Making ===false">
-          <h3 class="modal__reeffect">{{ idea.title }}<br><br><br>{{ idea.description }}<br><br><br>￥{{ idea.price }}</h3>
+          <h3 class="modal__title_2">{{ idea.title }}</h3>
+          <p>内容</p>
+          <h3 class="modal__description_2">{{ idea.description }}</h3>
+          <p>価格</p>
+          <h3 class="modal__price_2">{{ idea.price }}</h3>
         </div>
       </div>
       <!-- v-on ディレクティブを使うことで、DOM イベントの購読、イベント発火時の JavaScript の実行が可能になります。 -->
@@ -98,7 +104,7 @@ export default {
   width: 550px;
   height: 300px;
   background-color: #fff;
-  border: none;
+  border: solid 2px #2c3e50;
   border-radius: 5px;
   padding-top: 50px;
   padding-left: 65px;
@@ -127,11 +133,15 @@ export default {
   background-color: rgb(243, 222, 29);
   box-shadow: 1px 1px 12px rgba(243, 222, 29,.65);
 }
+
+
+
 button {
   margin-left: 10%;
-  background-color: rgb(247, 207, 77);
+  background-color: #ffffff;
   padding: 5px 10px;
   width: 16%;
+  border: solid 1px #333;
   border-radius: 5px;
   font-weight: 600;
   margin-top: 100px;
@@ -140,6 +150,7 @@ button.modal__buy {
   margin-left: 38%;
   width: 16%;
   padding: 5px 10px;
+  border: none;
   background-color: #36D9BA;
   border-radius: 5px;
   font-weight: 600;
