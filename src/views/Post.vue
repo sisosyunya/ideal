@@ -17,8 +17,8 @@
         <option>自由研究</option>
         <option>読書感想文</option>
       </select>
-      <p>概要</p>
-      <input class="description" v-model="description" placeholder="詳細" />
+      <p>内容</p>
+      <textarea class="description" v-model="description" placeholder="詳細"></textarea>
       <p>販売価格</p>
       <input class="price" v-model="price" placeholder="価格" type="number" />
       <button class="btn" @click="addIdea" :disabled="deleteIsLoading">投稿</button>
@@ -63,6 +63,11 @@ input {
     border-color :#606060;
     border-radius: 4px;
 }
+textarea {
+    border :1px solid #606060;
+    border-color :#606060;
+    border-radius: 4px;
+}
 .post {
     width: 80%;
     height: 600px;
@@ -94,7 +99,7 @@ select.category {
   margin-left: 10%;
   margin-bottom: 20px;
 }
-input.description {
+textarea.description {
   width: 78%;
   padding: 8px 10px;
   margin-left: 10%;
