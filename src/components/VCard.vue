@@ -1,34 +1,37 @@
 <template>
-  <div class="card" @click="() => (isModal = true)">
+  <div v-if = "sold" class="card" @click="() => (isModal = true)">
     <h3 class="card__title">{{ idea.title }}</h3>
+  </div>
+  <div v-else  class="card" >
+    <h3 class="card__title">sold out</h3>
   </div>
   <div v-show="isModal" class="overlay">
     <div class="modal_wrap">
       <button
         class="modal__close"
         @click="
-          reload();
-          () => (isModal = false);
+          
+          () => (isModal = false)
         "
       >
         <span class="model__X">×</span>
       </button>
-      <div class="modal">
-        <div v-show="Making" class="text">
+      <!-- <div class="modal"> -->
+        <div v-show="Making" class="text modal">
           <h2 class="modal__title">{{ idea.title }}</h2>
           <p>価格</p>
           <h3 class="modal__price">{{ idea.price }}</h3>
           <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
           <button class="modal__buy" @click="Makenew">購入</button>
         </div>
-        <div class="modaling" v-show="Making === false">
+        <div class="modaling modal" v-show="Making === false">
           <h2 class="modal__title_2">{{ idea.title }}</h2>
           <p>内容</p>
           <h3 class="modal__description_2">{{ idea.description }}</h3>
           <p>価格</p>
           <h3 class="modal__price_2">{{ idea.price }}</h3>
         </div>
-      </div>
+      <!-- </div> -->
       <!-- v-on ディレクティブを使うことで、DOM イベントの購読、イベント発火時の JavaScript の実行が可能になります。 -->
     </div>
   </div>
@@ -42,6 +45,7 @@ export default {
     isModal: false,
     deleteIsLoading: false,
     Making: true,
+    sold : true
   }),
   // ここから下はしようしていない←なにこれ
   methods: {
@@ -58,6 +62,7 @@ export default {
     async Makenew() {
       this.Making = false;
       this.isModal = true;
+      this.sold = false;
       const Making = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(Making.data());
     },
