@@ -9,6 +9,7 @@
     "postinstall": "yarn build",
     "start": "node server.js"
   },
+  
   "dependencies": {
     "core-js": "^3.6.5",
     "firebase": "^9.0.2",
