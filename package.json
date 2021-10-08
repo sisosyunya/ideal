@@ -9,9 +9,9 @@
     "postinstall": "yarn build",
     "start": "node server.js"
   },
-  
   "dependencies": {
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "firebase": "^9.0.2",
     "ress": "^4.0.0",
     "vue": "^3.0.0",
