@@ -1,4 +1,7 @@
 <template>
+  <div class="atama">
+    <img class="icon" src="../assets/icon.png" />
+  </div>
       <div id="nav">
     <router-link to="/">トップ</router-link> |
     <router-link to="/post">アイデアをだす</router-link> | 
@@ -20,6 +23,9 @@
             <input type="password" v-model="password"></td>
       </table>
       <button v-on:click="signUp">登録</button>
+  </div>
+  <div>
+      <router-link to="/Signup">Signup</router-link>
   </div>
 </template>
 <script>
