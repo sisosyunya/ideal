@@ -8,6 +8,19 @@
     <router-link to="/home">アイデアをみる</router-link> | 
     <router-link to="/login">ログイン</router-link> |
   </div>
+  <main>
+  <div class="title">
+      カテゴリ
+  </div>
+  <div>
+      <select v-model="category" class="category">
+        <option disabled value="">選択してください▼</option>
+        <option>自由研究</option>
+        <option>読書感想文</option>
+      </select>
+  </div>
+  </main>
+
   <div class="container">
     <v-card v-for="(idea, i) in ideas" :key="i" :idea="idea" />
   </div>
@@ -24,7 +37,8 @@ export default {
     VCard
   },
   data:()=> ({
-    ideas: []
+    ideas: [],
+    category: "",
   }),
   mounted() {
     this.fetchIdeas();
@@ -48,6 +62,37 @@ export default {
   max-width: 1024px;
   margin: 0 auto;
 }
+.category {
+  padding: 5px 10px;
+  border :1px solid #606060;
+  border-color :#606060;
+  border-radius: 4px;
+}
+
+select.category {
+  //margin-left: 65%;
+  margin-bottom: 20px;
+}
+
+.spinner{
+  
+   resize: horizontal;
+}
+
+.title{
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: #606060;
+  margin-left: 10%;
+}
+
+main{
+    display: flex;
+     margin-left: 60%;
+}
+
+
 
 ::v-deep .card {
   transition: 0.3s;
