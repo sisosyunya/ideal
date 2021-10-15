@@ -8,6 +8,9 @@
     <router-link to="/home">アイデアをみる</router-link> | 
         <router-link to="/login">ログイン</router-link> |
   </div>
+  <div class="google">
+  <button @click="googleSignin">googleアカウントでログイン</button>
+  </div>
   <div class="sign">
       <table>
           <tr>
@@ -33,20 +36,33 @@
 <script>
 // import { firebase } from "firebase/firestore"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+
+import {signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+
+
 export default{
   methods:{
-   async doLogin(){
+    async doLogin(){
       // firebase.auth().signIn
         const auth = getAuth();
         // const user = userCredential.user;
         await signInWithEmailAndPassword(auth,this.email,this.password)
         .then(
+          //成功時の処理
           alert('success')
         )
         .catch(
+          //失敗の処理
           alert('lose')
         )
-      }
+      },
+   async googleSignin(){
+     const provider = new GoogleAuthProvider();
+     const auth = getAuth();
+     await signInWithPopup(auth, provider)
+
+   }
     }
   }
 
