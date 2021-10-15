@@ -8,7 +8,7 @@
               <th>メールアドレス:</th>
           </tr>
           <tr>
-              <td><input type="email" v-model="mailaddress"/></td>
+              <td><input type="email" v-model="email"></td>
          </tr>
          <tr>
              <th>パスワード</th>
