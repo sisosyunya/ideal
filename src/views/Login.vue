@@ -14,7 +14,7 @@
               <th>メールアドレス:</th>
           </tr>
           <tr>
-              <td><input type="email" v-model="mailaddress"/></td>
+              <td><input type="email" v-model="email"></td>
          </tr>
          <tr>
              <th>パスワード</th>
@@ -37,7 +37,13 @@ export default{
       // firebase.auth().signIn
         const auth = getAuth();
         // const user = userCredential.user;
-        await signInWithEmailAndPassword(auth,this.email,this.password);
+        await signInWithEmailAndPassword(auth,this.email,this.password)
+        .then(
+          alert('success')
+        )
+        .catch(
+          alert('lose')
+        )
       }
     }
   }
