@@ -27,6 +27,12 @@ export default{
     async doSignup(){
       const auth = getAuth();
       await createUserWithEmailAndPassword(auth, this.email, this.password)
+      .then(
+        alert('success')
+      )
+      .catch(
+        alert('lose')
+      )
     }
   }
 }
