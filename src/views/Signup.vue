@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-
+// aaaaaaa
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 export default{
   methods:{
