@@ -27,7 +27,9 @@
   <div>
       <router-link to="/Signup">Signup</router-link>
   </div>
+  <!-- yokiyoki -->
 </template>
+
 <script>
 // import { firebase } from "firebase/firestore"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
