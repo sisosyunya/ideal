@@ -22,7 +22,7 @@
             <td>
             <input type="password" v-model="password"></td>
       </table>
-      <button v-on:click="signUp">登録</button>
+      <button v-on:click="doLogin">ログイン</button>
   </div>
   <div>
       <router-link to="/Signup">Signup</router-link>
@@ -30,7 +30,17 @@
 </template>
 <script>
 // import { firebase } from "firebase/firestore"
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+export default{
+  methods:{
+   async doLogin(){
+      // firebase.auth().signIn
+        const auth = getAuth();
+        // const user = userCredential.user;
+        await signInWithEmailAndPassword(auth,this.email,this.password);
+      }
+    }
+  }
 
 
 
