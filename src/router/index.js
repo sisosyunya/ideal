@@ -6,7 +6,7 @@ import Login from "../views/Login.vue"
 import Signup from "../views/Signup.vue"
 import Chat from "../views/Chat.vue"
 // import ChatWindow from "../component/ChatWindow.vue"
-import NewChatForm from "../views/NewChatForm.vue"
+// import NewChatForm from "../views/NewChatForm.vue"
 
 const routes = [
   {
@@ -39,11 +39,11 @@ const routes = [
     name:'Chat',
     component: Chat
   },
-  {
-    path:'/newchatform',
-    name:'NewChatForm',
-    component:NewChatForm
-  }
+  // {
+  //   path:'/newchatform',
+  //   name:'NewChatForm',
+  //   component:NewChatForm
+  // }
 ]
 
 
