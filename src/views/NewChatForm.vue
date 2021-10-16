@@ -13,7 +13,7 @@
 import { ref } from '@vue/reactivity'
 import getUser from '../composables/getUser'
 import useCollection from '../composables/useCollection'
-import { timestamp } from 'firebase/config'
+import { timestamp } from '../firebase/config'
 
 export default {
   setup() {
