@@ -52,6 +52,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 .category {
   padding: 5px 10px;

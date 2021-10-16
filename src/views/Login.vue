@@ -7,7 +7,7 @@
     <router-link to="/post">アイデアをだす</router-link> | 
     <router-link to="/home">アイデアをみる</router-link> | 
         <router-link to="/login">ログイン</router-link> |
-    <router-link to="/chat">チャット</router-link> |
+     |
   </div>
   <div class="google">
   <button @click="googleSignin">googleアカウントでログイン</button>
@@ -58,17 +58,13 @@ export default{
           alert('lose')
         )
       },
-   async googleSignin(){
+    async googleSignin(){
      const provider = new GoogleAuthProvider();
      const auth = getAuth();
      await signInWithPopup(auth, provider)
-
-   }
     }
   }
-
-
-
+}
 
 </script>
 
