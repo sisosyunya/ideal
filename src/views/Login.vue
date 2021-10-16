@@ -6,7 +6,8 @@
     <router-link to="/">トップ</router-link> |
     <router-link to="/post">アイデアをだす</router-link> | 
     <router-link to="/home">アイデアをみる</router-link> | 
-        <router-link to="/login">ログイン</router-link> |
+    <router-link to="/login">ログイン</router-link> |
+    <router-link to="/newchatform">テスト</router-link> |
   </div>
   <div class="google">
   <button @click="googleSignin">googleアカウントでログイン</button>

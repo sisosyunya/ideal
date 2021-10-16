@@ -10,3 +10,37 @@
     </div>
   </div>
 </template>
+
+<script>
+
+import getCollection from '../composables/getCollection'
+import { formatDistanceToNow } from 'date-fns'
+import { ja } from 'date-fns/locale'
+import { computed, onUpdated, ref } from 'vue'
+
+export default {
+  setup() {
+    const { error, documents } = getCollection('message')
+
+    // 新しい日付に変換する
+    const formattedDocuments = computed(() => {
+      if (documents.value) {
+        return documents.value.map(doc => {
+          let time = formatDistanceToNow(doc.createdAt.toDate(), {
+            addSuffix: true,
+            locale: ja
+          })
+          return { ...doc, createdAt: time } //docにはmessageとかが含まれていて、createdAtはtimeで上書きする
+        })
+      }
+    })
+    // 最新メッセージへ自動スクロール
+    const messages = ref(null)
+
+    onUpdated(() => {
+      messages.value.scrollTop = messages.value.scrollHeight
+    })
+    return { error, documents, formattedDocuments, messages }
+  }
+}
+</script>
