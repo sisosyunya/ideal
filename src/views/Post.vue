@@ -25,11 +25,21 @@
       <p>販売価格</p>
       <input class="price" v-model="price" placeholder="価格" type="number" />
       <button class="btn" @click="addIdea" :disabled="deleteIsLoading">投稿</button>
+      <div v-show="checklogin === true">
+      </div>
+      <div v-show="checklogin === false">
+        <p>ログインしてください</p>
+        <router-link to="/login" tag="button">ログインする</router-link>
+        <p>アカウントを持っていない方はこちら</p>
+        <router-link to="/signup" tag="button">新規登録</router-link>
+      </div>
     </div>
 </template>
 <script>
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../main';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 export default {
     name: "Post",
     data: ()=> ({
@@ -53,6 +63,22 @@ export default {
         },
     }
 }
+
+
+
+// const auth = getAuth();
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//   }
+// });
+
 </script>
 <style scoped>
 .category {

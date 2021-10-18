@@ -24,7 +24,6 @@
   </div>
 </template>
 <script>
-// papapapapap
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 export default{
   methods:{
@@ -40,6 +39,7 @@ export default{
           var errorMessage = error.message;
           console.log(errorCode);
           console.log(errorMessage);
+          alert('ログインできませんでした')
       }
       )
     }
