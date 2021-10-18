@@ -31,11 +31,16 @@ export default{
     async doSignup(){
       const auth = getAuth();
       await createUserWithEmailAndPassword(auth, this.email, this.password)
-      .then(
-        alert('success')
-      )
-      .catch(
-        alert('lose')
+      .then(()=>{
+        alert('登録完了')
+      })
+      .catch(function(error){
+        //失敗の処理
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+      }
       )
     }
   }

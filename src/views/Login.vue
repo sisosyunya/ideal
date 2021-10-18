@@ -49,13 +49,17 @@ export default{
         const auth = getAuth();
         // const user = userCredential.user;
         await signInWithEmailAndPassword(auth,this.email,this.password)
-        .then(
+        .then(()=>{
           //成功時の処理
-          alert('success')
-        )
-        .catch(
-          //失敗の処理
-          alert('lose')
+          alert('ログイン完了')
+        })
+        .catch(function(error){
+                    //失敗の処理
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+        }
         )
       },
    async googleSignin(){
