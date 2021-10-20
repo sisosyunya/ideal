@@ -87,6 +87,11 @@ export default {
   box-shadow: 0 3px 4px rgb(0 0 0 / 32%);
 }
 
+.card__title {
+  padding-left: 16px;
+  padding-right: 10px;
+}
+
 .card:hover {
   opacity: 0.6;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
