@@ -59,6 +59,7 @@ export default{
           var errorMessage = error.message;
           console.log(errorCode);
           console.log(errorMessage);
+          alert('ログインに失敗しました')
         }
         )
       },
