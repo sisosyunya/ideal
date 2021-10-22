@@ -39,7 +39,7 @@ export default{
           var errorMessage = error.message;
           console.log(errorCode);
           console.log(errorMessage);
-          alert('ログインできませんでした')
+          alert('登録できませんでした')
       }
       )
     }
