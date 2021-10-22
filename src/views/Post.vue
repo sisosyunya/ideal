@@ -61,25 +61,25 @@ export default {
   border-radius: 4px;
 }
 input {
-    border :1px solid #606060;
-    border-color :#606060;
-    border-radius: 4px;
+  border :1px solid #606060;
+  border-color :#606060;
+  border-radius: 4px;
 }
 textarea {
-    border :1px solid #606060;
-    border-color :#606060;
-    border-radius: 4px;
-    resize: vertical;
+  border :1px solid #606060;
+  border-color :#606060;
+  border-radius: 4px;
+  resize: vertical;
 }
 .post {
-    width: 80%;
-    height: 600px;
-    border: solid;
-    border-color: #36D9BA;
-    border-radius: 80px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 80px;
+  width: 80%;
+  height: 600px;
+  border: solid;
+  border-color: #36D9BA;
+  border-radius: 80px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 80px;
 }
 .space {
   height: 40px;
