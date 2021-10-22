@@ -1,56 +1,104 @@
+
 <template>
   <div class="atama">
     <img class="icon" src="../assets/icon.png" />
   </div>
   <div id="nav">
     <router-link to="/">トップ</router-link> |
-    <router-link to="/post">アイデアをだす</router-link> | 
-    <router-link to="/home">アイデアをみる</router-link> | 
-        <router-link to="/login">ログイン</router-link> |
+    <router-link to="/post">アイデアをだす</router-link> |
+    <router-link to="/home">アイデアをみる</router-link> |
+    <router-link to="/login">ログイン</router-link> |
+    <router-link to="/chat">チャット</router-link> |
   </div>
-    <div class="post">
-      <div class="space"></div>
-      <p>タイトル</p>
-      <input class="title" v-model="title" placeholder="タイトル" />
-      <p>カテゴリ</p>
-      <select v-model="category" class="category">
-        <option disabled value="">選択してください▼</option>
-        <option>自由研究</option>
-        <option>読書感想文</option>
-      </select>
-      <p>内容</p>
-      <textarea class="description" v-model="description" placeholder="詳細"></textarea>
-      <p>販売価格</p>
-      <input class="price" v-model="price" placeholder="価格" type="number" />
-      <button class="btn" @click="addIdea" :disabled="deleteIsLoading">投稿</button>
+  <div class="post">
+    <div class="space"></div>
+    <p>タイトル</p>
+    <input class="title" v-model="title" placeholder="タイトル" />
+    <p>カテゴリ</p>
+    <select v-model="category" class="category">
+      <option disabled value="">選択してください▼</option>
+      <option>自由研究</option>
+      <option>読書感想文</option>
+    </select>
+    <p>内容</p>
+    <textarea
+      class="description"
+      v-model="description"
+      placeholder="詳細"
+    ></textarea>
+    <p>販売価格</p>
+    <input class="price" v-model="price" placeholder="価格" type="number" />
+    <button class="btn" @click="confirm_auth" :disabled="deleteIsLoading">
+      投稿
+    </button>
+    <div v-show="checklogin === true"></div>
+    <div v-show="checklogin === false">
+      <p>ログインしてください</p>
+      <router-link to="/login" tag="button">ログインする</router-link>
+      <p>アカウントを持っていない方はこちら</p>
+      <router-link to="/signup" tag="button">新規登録</router-link>
     </div>
+  </div>
 </template>
 <script>
 import { addDoc, collection } from "firebase/firestore";
-import { db } from '../main';
+import { db } from "../main";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 export default {
-    name: "Post",
-    data: ()=> ({
-        title: "",
-        category: "",
-        description: "",
-        price: null,
-        deleteIsLoading:false
-    }),
-    methods: {
-        async addIdea() {
-            console.log("aaa")
-            this.deleteIsLoading = true,
-            await addDoc(collection(db, "ideas"), {
-                title: this.title,
-                description: this.description,
-                price: this.price
-            })
-            this.$router.push("/")
-            this.deleteIsLoading = false
-        },
-    }
-}
+  name: "Post",
+  data: () => ({
+    title: "",
+    category: "",
+    description: "",
+    price: null,
+    deleteIsLoading: false,
+    auth: getAuth(),
+    uid: null,
+    coment: "",
+    checklogin: true,
+  }),
+  mounted() {},
+  methods: {
+    async confirm_auth() {
+      onAuthStateChanged(this.auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          console.log("aaa");
+          (this.deleteIsLoading = true),
+            addDoc(collection(db, "ideas"), {
+              title: this.title,
+              description: this.description,
+              price: this.price,
+            });
+          this.$router.push("/");
+          this.deleteIsLoading = false;
+          this.uid = user.uid;
+          this.addIdea;
+          console.log("true");
+          // ...
+        } else {
+          // User is signed out
+          // ...
+          this.checklogin = false;
+          console.log("false");
+        }
+      });
+    },
+  },
+};
+// const auth = getAuth();
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//   }
+// });
 </script>
 
 <style scoped>
