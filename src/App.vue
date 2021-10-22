@@ -1,14 +1,11 @@
 <template>
-
   <router-view />
 </template>
 
 <script>
-import 'ress'
+import "ress";
 
-export default {
-  
-}
+export default {};
 </script>
 
 <style lang="scss">
@@ -36,7 +33,7 @@ export default {
 .atama {
   height: 70px;
   width: 100%;
-  background-color: #6AE5CD;
+  background-color: #6ae5cd;
 }
 
 .icon {
