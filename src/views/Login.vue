@@ -45,7 +45,7 @@
     </div>
 
     <div>
-      <router-link to="/Signup" class="signup">新規登録</router-link>
+      <router-link to="/Signup" class="signupbtn">新規登録</router-link>
     </div>
     <div class="logout">
       <button v-on:click="log_out">ログアウト</button>
@@ -190,7 +190,7 @@ input.password {
 .googleButton {
   height: 30px;
 }
-.signup {
+.signupbtn {
   padding: 8px 40px;
   margin-top: 25px;
   margin-bottom: 100px;
