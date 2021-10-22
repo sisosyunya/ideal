@@ -123,8 +123,8 @@ export default {
 }
 
 .modaling {
-  width: 550px;
-  height: 300px;
+  width: 650px;
+  height: 400px;
   background-color: #fff;
   
   border-radius: 5px;
@@ -179,6 +179,8 @@ export default {
 
 .modal__description_2 {
   margin-bottom: 30px;
+  word-wrap: break-word;
+
 }
 
 .modaling p {
