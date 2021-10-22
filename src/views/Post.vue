@@ -1,4 +1,3 @@
-
 <template>
   <div class="atama">
     <img class="icon" src="../assets/icon.png" />
@@ -21,11 +20,7 @@
       <option>読書感想文</option>
     </select>
     <p>内容</p>
-    <textarea
-      class="description"
-      v-model="description"
-      placeholder="詳細"
-    ></textarea>
+    <textarea class="description" v-model="description" placeholder="詳細"></textarea>
     <p>販売価格</p>
     <input class="price" v-model="price" placeholder="価格" type="number" />
     <button class="btn" @click="confirm_auth" :disabled="deleteIsLoading">
@@ -104,18 +99,18 @@ export default {
 <style scoped>
 .category {
   padding: 5px 10px;
-  border :1px solid #606060;
-  border-color :#606060;
+  border: 1px solid #606060;
+  border-color: #606060;
   border-radius: 4px;
 }
 input {
-  border :1px solid #606060;
-  border-color :#606060;
+  border: 1px solid #606060;
+  border-color: #606060;
   border-radius: 4px;
 }
 textarea {
-  border :1px solid #606060;
-  border-color :#606060;
+  border: 1px solid #606060;
+  border-color: #606060;
   border-radius: 4px;
   resize: vertical;
 }
@@ -123,7 +118,7 @@ textarea {
   width: 80%;
   height: 600px;
   border: solid;
-  border-color: #36D9BA;
+  border-color: #36d9ba;
   border-radius: 80px;
   margin-right: auto;
   margin-left: auto;
@@ -168,8 +163,8 @@ input.price {
   margin-left: 80%;
   border-radius: 30px;
   font-weight: 600;
-  color: #FFFFFF;
-  background-color: #36D9BA;
+  color: #ffffff;
+  background-color: #36d9ba;
   border: none;
   transition: 0.3s;
 }
