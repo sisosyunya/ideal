@@ -61,6 +61,7 @@ export default {
   gap: 10px;
   max-width: 1024px;
   margin: 0 auto;
+  margin-bottom: 100px;
 }
 .category {
   padding: 5px 10px;
