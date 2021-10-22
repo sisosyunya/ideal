@@ -135,17 +135,18 @@ input {
   border: 1px solid #606060;
   border-color: #606060;
   border-radius: 4px;
-  width: 230%;
-  margin-left: 68%;
+  margin-left: 34%;
   margin-bottom: 5px;
 }
 input.email {
   padding: 5px 10px;
   font-size: 12px;
+  width: 310px;
 }
 input.password {
   padding: 5px 10px;
   font-size: 12px;
+  width: 310px;
 }
 .btn {
   padding: 8px 40px;
