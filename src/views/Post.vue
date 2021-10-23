@@ -67,6 +67,7 @@ export default {
     uid: null,
     coment: "",
     checklogin: true,
+    isModal:false
   }),
   mounted() {},
   methods: {
@@ -96,7 +97,7 @@ export default {
       });
       this.isModal=true
     },
-    method: function deletetete() {
+    deletetete() {
       this.isModal=!this.isModal
     },
   },
@@ -191,7 +192,7 @@ input.price {
   transform: translateY(-5px);
   opacity: 0.7;
 }
-.checking {
+.mardaling {
   position: fixed;
   top: 0;
   bottom: 0;
