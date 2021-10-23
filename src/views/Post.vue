@@ -20,18 +20,34 @@
       <option>読書感想文</option>
     </select>
     <p>内容</p>
-    <textarea class="description" v-model="description" placeholder="詳細"></textarea>
+    <textarea
+      class="description"
+      v-model="description"
+      placeholder="詳細"
+    ></textarea>
     <p>販売価格</p>
     <input class="price" v-model="price" placeholder="価格" type="number" />
     <button class="btn" @click="confirm_auth" :disabled="deleteIsLoading">
       投稿
     </button>
-    <div v-show="checklogin === true"></div>
-    <div v-show="checklogin === false">
-      <p>ログインしてください</p>
-      <router-link to="/login" tag="button">ログインする</router-link>
-      <p>アカウントを持っていない方はこちら</p>
-      <router-link to="/signup" tag="button">新規登録</router-link>
+    <!-- <div v-show="checklogin === true"></div> -->
+    <div class="checking" v-if="checklogin === false">
+      <div class="mardaling" v-show="isModal === true">
+        <button class="modalclosing" @click="deletetete">
+          <span class="model__X">×</span>
+        </button>
+        <div class="checkdayo">
+          <div class="checking_login">
+            {{ isModal }}
+            <p>ログインしてください</p>
+            <router-link to="/login" tag="button">ログインする</router-link>
+          </div>
+          <div class="checking_nothave">
+            <p>アカウントを持っていない方はこちら</p>
+            <router-link to="/signup" tag="button">新規登録</router-link>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -59,7 +75,6 @@ export default {
         if (user) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
-          console.log("aaa");
           (this.deleteIsLoading = true),
             addDoc(collection(db, "ideas"), {
               title: this.title,
@@ -79,6 +94,10 @@ export default {
           console.log("false");
         }
       });
+      this.isModal=true
+    },
+    method: function deletetete() {
+      this.isModal=!this.isModal
     },
   },
 };
@@ -171,5 +190,53 @@ input.price {
 .btn:hover {
   transform: translateY(-5px);
   opacity: 0.7;
+}
+.checking {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkdayo {
+  width: 550px;
+  height: 300px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding-top: 50px;
+  padding-left: 65px;
+  padding-bottom: 100px;
+  line-height: 20px;
+  text-align: center;
+}
+.modalclosing {
+  position: absolute;
+  top: 8%;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 25%;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+}
+.checking_login {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.checkdayo a {
+  padding-bottom: 10px;
+  margin-top: 10px;
 }
 </style>
