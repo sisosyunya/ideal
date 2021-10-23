@@ -8,12 +8,7 @@
   <div v-show="isModal" class="overlay">
     <div class="modal_wrap">
       <button
-        class="modal__close"
-        @click="
-          
-          () => (isModal = false)
-        "
-      >
+        class="modal__close" @click="() => (isModal = false)">
         <span class="model__X">×</span>
       </button>
       <!-- <div class="modal"> -->
@@ -122,6 +117,15 @@ export default {
   line-height: 20px;
 }
 
+.text.modal {
+  padding: 50px 10% 5px 10%;
+}
+
+.text.modal p {
+  margin-left: 0;
+  margin-top: 10px;
+}
+
 .modaling {
   width: 650px;
   height: 400px;
@@ -170,7 +174,9 @@ export default {
 }
 
 .modal__title {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  line-height: 25px;
 }
 
 .modal__title_2 {
@@ -191,14 +197,14 @@ export default {
 }
 
 button {
-  margin-left: 10%;
+  margin-left: 15%;
   background-color: #ffffff;
   padding: 5px 10px;
   width: 16%;
   border: solid 1px #333;
   border-radius: 5px;
   font-weight: 600;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 button.modal__buy {
