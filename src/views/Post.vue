@@ -180,7 +180,6 @@ input.price {
 }
 .btn {
   padding: 8px 40px;
-  
   border-radius: 30px;
   font-weight: 600;
   color: #ffffff;

@@ -1,31 +1,30 @@
 <template>
-  <div v-if = "sold" class="card" @click="() => (isModal = true)">
+  <div v-if="sold" class="card" @click="() => (isModal = true)">
     <h3 class="card__title">{{ idea.title }}</h3>
   </div>
-  <div v-else  class="card" >
+  <div v-else class="card">
     <h3 class="card__title">sold out</h3>
   </div>
   <div v-show="isModal" class="overlay">
     <div class="modal_wrap">
-      <button
-        class="modal__close" @click="() => (isModal = false)">
+      <button class="modal__close" @click="() => (isModal = false)">
         <span class="model__X">×</span>
       </button>
       <!-- <div class="modal"> -->
-        <div v-show="Making" class="text modal">
-          <h2 class="modal__title">{{ idea.title }}</h2>
-          <p>価格</p>
-          <h3 class="modal__price">{{ idea.price }}</h3>
-          <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
-          <button class="modal__buy" @click="Makenew">購入</button>
-        </div>
-        <div class="modaling modal" v-show="Making === false">
-          <h2 class="modal__title_2">{{ idea.title }}</h2>
-          <p>内容</p>
-          <h3 class="modal__description_2">{{ idea.description }}</h3>
-          <p>価格</p>
-          <h3 class="modal__price_2">{{ idea.price }}</h3>
-        </div>
+      <div v-show="Making" class="text modal">
+        <h2 class="modal__title">{{ idea.title }}</h2>
+        <p>価格</p>
+        <h3 class="modal__price">{{ idea.price }}</h3>
+        <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
+        <button class="modal__buy" @click="Makenew">購入</button>
+      </div>
+      <div class="modaling modal" v-show="Making === false">
+        <h2 class="modal__title_2">{{ idea.title }}</h2>
+        <p>内容</p>
+        <h3 class="modal__description_2">{{ idea.description }}</h3>
+        <p>価格</p>
+        <h3 class="modal__price_2">{{ idea.price }}</h3>
+      </div>
       <!-- </div> -->
       <!-- v-on ディレクティブを使うことで、DOM イベントの購読、イベント発火時の JavaScript の実行が可能になります。 -->
     </div>
@@ -40,7 +39,7 @@ export default {
     isModal: false,
     deleteIsLoading: false,
     Making: true,
-    sold : true
+    sold: true,
   }),
   // ここから下はしようしていない←なにこれ
   methods: {
@@ -111,9 +110,7 @@ export default {
   background-color: #fff;
   border: none;
   border-radius: 5px;
-  padding-top: 50px;
-  padding-left: 65px;
-  padding-bottom: 100px;
+  padding: 50px 10% 100px 10%;
   line-height: 20px;
 }
 
@@ -127,15 +124,11 @@ export default {
 }
 
 .modaling {
-  width: 650px;
+  width: 550px;
   height: 400px;
   background-color: #fff;
-  
   border-radius: 5px;
-  padding-top: 50px;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-bottom: 120px;
+  padding: 50px 10% 120px 10%;
   line-height: 20px;
 }
 
@@ -150,7 +143,7 @@ export default {
   width: 30px;
   height: 30px;
   background-color: white;
-  border :none;
+  border: none;
   border-radius: 9999px;
   font-weight: bold;
   font-size: 24px;
@@ -162,8 +155,7 @@ export default {
 }
 
 .modal__close:hover {
-    background-color: #CBC9C9;
-  
+  background-color: #cbc9c9;
 }
 
 .modal p {
@@ -180,13 +172,14 @@ export default {
 }
 
 .modal__title_2 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  line-height: 25px;
 }
 
 .modal__description_2 {
   margin-bottom: 30px;
   word-wrap: break-word;
-
 }
 
 .modaling p {
@@ -194,6 +187,7 @@ export default {
   font-size: 16px;
   color: #36d9ba;
   margin-bottom: 10px;
+  margin-left: 0;
 }
 
 button {
