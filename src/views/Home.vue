@@ -7,6 +7,7 @@
     <router-link to="/post">アイデアをだす</router-link> |
     <router-link to="/home">アイデアをみる</router-link> |
     <router-link to="/login">ログイン</router-link> |
+        <router-link to="/mypage">マイページ</router-link> |
   </div>
   <main>
     <div class="title">

@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Post from "../views/Post.vue"
 import Login from "../views/Login.vue"
 import Signup from "../views/Signup.vue"
+import Mypage from "../views/Mypage.vue"
 
 
 
@@ -33,6 +34,11 @@ const routes = [
     name: 'Signup',
     component: Signup
   },
+  {
+    path:'/Mypage',
+    name:'Mypage',
+    component:Mypage
+  }
   
 ]
 
