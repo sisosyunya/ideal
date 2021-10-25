@@ -7,10 +7,10 @@
 </template>
 <script>
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDocs } from "@firebase/firestore";
+import { getDocs,collection, where, query } from "@firebase/firestore";
 import VCard from "../components/VCard.vue";
 import { db } from "../main";
-import { collection } from "firebase/firestore";
+
 
 export default {
   name: "Mypage",
@@ -28,13 +28,14 @@ export default {
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!完成したらmountedにしてボタンを消す!!!!!!!!!!!!!!!!!!!!!!!
   methods: {
-    async getttt() {
+    async getttt(user) {
       //   const auth = getAuth();
       //   onAuthStateChanged(auth).then(() => {
-      // const uid = user.uid;
-      console.log();
-    //   const q = query(collection(db,"ideas",where("user","==",true)))
-      const querySnapshot = await getDocs(collection(db, "ideas",));
+      const uid = user.uid;
+      console.log("iiii");
+      const q = query(collection(db, "ideas"), where("user", "==", uid));
+      console.log('uuu');
+      const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         this.ideas.push({ ...doc.data(), id: doc.id });
         console.log("aaaa");
@@ -45,21 +46,21 @@ export default {
 };
 </script>
 
-      const auth = getAuth();
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          // ...
-          const uid = user.uid;
-          console.log(uid);
-          const querySnapshot = await getDocs(collection(db, "ideas"));
-          querySnapshot.forEach((doc) => {
-            this.ideas.push({ ...doc.data(), id: doc.id });
-          });
-        } else {
-          // User is signed out
-          // ...
-          alert("losing");
-        }
-      });
+      // const auth = getAuth();
+      // onAuthStateChanged(auth, (user) => {
+      //   if (user) {
+      //     // User is signed in, see docs for a list of available properties
+      //     // https://firebase.google.com/docs/reference/js/firebase.User
+      //     // ...
+      //     const uid = user.uid;
+      //     console.log(uid);
+      //     const querySnapshot = await getDocs(collection(db, "ideas"));
+      //     querySnapshot.forEach((doc) => {
+      //       this.ideas.push({ ...doc.data(), id: doc.id });
+      //     });
+      //   } else {
+      //     // User is signed out
+      //     // ...
+      //     alert("losing");
+      //   }
+      // });
