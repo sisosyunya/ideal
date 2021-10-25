@@ -81,6 +81,7 @@ export default {
               title: this.title,
               description: this.description,
               price: this.price,
+              user:user.uid,
             });
           this.$router.push("/");
           this.deleteIsLoading = false;
