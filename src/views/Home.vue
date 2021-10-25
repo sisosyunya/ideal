@@ -43,6 +43,7 @@ export default {
   }),
   mounted() {
     this.fetchIdeas();
+    ///mountedってやつでvcardが元から表示されるみたい
   },
   methods: {
     async fetchIdeas() {

@@ -6,7 +6,7 @@
   <button class="btn" v-on:click="getttt">チェック</button>
 </template>
 <script>
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDocs } from "@firebase/firestore";
 import VCard from "../components/VCard.vue";
 import { db } from "../main";
@@ -19,14 +19,32 @@ export default {
   },
   data: () => ({
     ideas: [],
-    uid: "",
+    // uid: null,
     category: "",
   }),
-  mounted() {
-    this.getttt();
-  },
+  //   mounted() {
+  //     this.getttt();
+  //   },
+
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!完成したらmountedにしてボタンを消す!!!!!!!!!!!!!!!!!!!!!!!
   methods: {
     async getttt() {
+      //   const auth = getAuth();
+      //   onAuthStateChanged(auth).then(() => {
+      // const uid = user.uid;
+      console.log();
+    //   const q = query(collection(db,"ideas",where("user","==",true)))
+      const querySnapshot = await getDocs(collection(db, "ideas","user"));
+      querySnapshot.forEach((doc) => {
+        this.ideas.push({ ...doc.data(), id: doc.id });
+        console.log("aaaa");
+      });
+      //   })
+    },
+  },
+};
+</script>
+
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -45,7 +63,3 @@ export default {
           alert("losing");
         }
       });
-    },
-  },
-};
-</script>
