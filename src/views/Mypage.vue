@@ -34,7 +34,7 @@ export default {
       // const uid = user.uid;
       console.log();
     //   const q = query(collection(db,"ideas",where("user","==",true)))
-      const querySnapshot = await getDocs(collection(db, "ideas","user"));
+      const querySnapshot = await getDocs(collection(db, "ideas",));
       querySnapshot.forEach((doc) => {
         this.ideas.push({ ...doc.data(), id: doc.id });
         console.log("aaaa");
