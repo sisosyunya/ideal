@@ -5,6 +5,7 @@ import Post from "../views/Post.vue"
 import Login from "../views/Login.vue"
 import Signup from "../views/Signup.vue"
 import Mypage from "../views/Mypage.vue"
+import Buy from "../views/Buy.vue"
 
 
 
@@ -38,6 +39,10 @@ const routes = [
     path:'/Mypage',
     name:'Mypage',
     component:Mypage
+  },{
+    path:'/Buy',
+    name:'/Buy',
+    component:Buy
   }
   
 ]

@@ -1,4 +1,17 @@
 <template>
+  <div class="atama">
+    <img class="icon" src="../assets/icon.png" />
+  </div>
+
+  <div id="nav">
+    <router-link to="/">トップ</router-link> |
+    <router-link to="/post">アイデアをだす</router-link> |
+    <router-link to="/home">アイデアをみる</router-link> |
+    <router-link to="/login">ログイン</router-link> |
+    <router-link to="/mypage">マイページ</router-link> |
+    <br>
+      <router-link to="/buy">購入した商品</router-link> |
+  </div>
   <div class="container">
     <v-card v-for="(idea, i) in ideas" :key="i" :idea="idea" />
   </div>
@@ -52,22 +65,13 @@ export default {
   },
 };
 </script>
-
-      // const auth = getAuth();
-      // onAuthStateChanged(auth, (user) => {
-      //   if (user) {
-      //     // User is signed in, see docs for a list of available properties
-      //     // https://firebase.google.com/docs/reference/js/firebase.User
-      //     // ...
-      //     const uid = user.uid;
-      //     console.log(uid);
-      //     const querySnapshot = await getDocs(collection(db, "ideas"));
-      //     querySnapshot.forEach((doc) => {
-      //       this.ideas.push({ ...doc.data(), id: doc.id });
-      //     });
-      //   } else {
-      //     // User is signed out
-      //     // ...
-      //     alert("losing");
-      //   }
-      // });
+<style scoped>
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 1024px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+</style>
