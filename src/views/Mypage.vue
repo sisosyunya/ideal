@@ -6,10 +6,10 @@
   <button class="btn" v-on:click="getttt">チェック</button>
 </template>
 <script>
-import { getDocs, collection, where, query,} from "@firebase/firestore";
+import { getDocs, collection, where, query } from "@firebase/firestore";
 import VCard from "../components/VCard.vue";
 import { db } from "../main";
-import { getAuth ,onAuthStateChanged} from '@firebase/auth';
+import { getAuth, onAuthStateChanged } from "@firebase/auth";
 
 export default {
   name: "Mypage",
@@ -20,7 +20,7 @@ export default {
     ideas: [],
     // uid: null,
     category: "",
-    auth:getAuth(),
+    auth: getAuth(),
   }),
   //   mounted() {
   //     this.getttt();
@@ -28,29 +28,29 @@ export default {
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!完成したらmountedにしてボタンを消す!!!!!!!!!!!!!!!!!!!!!!!
   methods: {
-    async getIdea(user){
+    async getIdea(user) {
       const uid = user.uid;
-        console.log("foiajoif;al");
-        const q = query(collection(db, "ideas"), where("user", "==", uid));
-        console.log("uuu");
-        const querySnapshot = getDocs(q);
-        querySnapshot.forEach((doc) => {
-          this.ideas.push({ ...doc.data(), id: doc.id });
-          console.log("aaaa");
-    });
+      console.log("foiajoifal");
+      const q = query(collection(db, "ideas"), where("user", "==", uid));
+      console.log("uuu");
+      const querySnapshot =await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        this.ideas.push({ ...doc.data(), id: doc.id });
+        console.log("aaaa");
+      });
     },
     async getttt() {
-      onAuthStateChanged(this.auth,(user) => {
-        if(user){
-          this.getIdea
-          console.log('iiibuigiii');
-        }else{
-          console.log('rrrrr');
+      onAuthStateChanged(this.auth, (user) => {
+        if (user) {
+          this.getIdea;
+          console.log("iiibuigiii");
+        } else {
+          console.log("rrrrr");
         }
-    });
+      });
+    },
   },
-}
-}
+};
 </script>
 
       // const auth = getAuth();
