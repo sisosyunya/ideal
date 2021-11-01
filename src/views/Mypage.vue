@@ -28,23 +28,27 @@ export default {
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!完成したらmountedにしてボタンを消す!!!!!!!!!!!!!!!!!!!!!!!
   methods: {
+    async getIdea(user){
+      const uid = user.uid;
+        console.log("foiajoif;al");
+        const q = query(collection(db, "ideas"), where("user", "==", uid));
+        console.log("uuu");
+        const querySnapshot = getDocs(q);
+        querySnapshot.forEach((doc) => {
+          this.ideas.push({ ...doc.data(), id: doc.id });
+          console.log("aaaa");
+    });
+    },
     async getttt() {
       onAuthStateChanged(this.auth,(user) => {
         if(user){
-          const uid = user.uid;
-            console.log("iiii");
-            const q = query(collection(db, "ideas"), where("user", "==", uid));
-            console.log("uuu");
-            const querySnapshot = getDocs(q);
-            querySnapshot.forEach((doc) => {
-              this.ideas.push({ ...doc.data(), id: doc.id });
-              console.log("aaaa");
-          });
-          }else{
-            console.log('konnitiha');
-          }
+          this.getIdea
+          console.log('iiibuigiii');
+        }else{
+          console.log('rrrrr');
+        }
     });
-  }
+  },
 }
 }
 </script>
