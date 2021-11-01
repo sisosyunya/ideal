@@ -42,7 +42,7 @@ export default {
     async getttt() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
-          this.getIdea;
+          this.getIdea(user);
           console.log("iiibuigiii");
         } else {
           console.log("rrrrr");
