@@ -8,4 +8,8 @@
     <router-link to="/home">アイデアをみる</router-link> |
     <router-link to="/login">ログイン</router-link> |
     <router-link to="/mypage">マイページ</router-link> |
+
 </template>
+<script>
+
+</script>

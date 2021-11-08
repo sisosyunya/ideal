@@ -16,7 +16,7 @@
         <p>価格</p>
         <h3 class="modal__price">{{ idea.price }}</h3>
         <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
-        <button class="modal__buy" @click="Makenew">購入</button>
+        <button class="modal__buy" @click="checklogin">購入</button>
       </div>
       <div class="modaling modal" v-show="Making === false">
         <h2 class="modal__title_2">{{ idea.title }}</h2>
@@ -31,8 +31,15 @@
   </div>
 </template>
 <script>
-import { getDoc, doc, deleteDoc } from "firebase/firestore";
+import {
+  getDoc,
+  doc,
+  deleteDoc,
+  updateDoc,
+  collection,
+} from "firebase/firestore";
 import { db } from "../main";
+import { getAuth, onAuthStateChanged } from "@firebase/auth";
 export default {
   props: ["idea"],
   data: () => ({
@@ -40,9 +47,12 @@ export default {
     deleteIsLoading: false,
     Making: true,
     sold: true,
+    auth: getAuth(),
+    soldout: "",
   }),
   // ここから下はしようしていない←なにこれ
   methods: {
+    //Vcardを追加する関数
     async fetchIdea() {
       const docSnap = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(docSnap.data());
@@ -59,6 +69,20 @@ export default {
       this.sold = false;
       const Making = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(Making.data());
+      await updateDoc(collection(db, "ideas", "soldout"), {
+        soldout: this.soldout,
+      });
+    },
+    async checklogin() {
+      onAuthStateChanged(this.auth, (user) => {
+        if (user) {
+          this.Makenew;
+          console.log("aaa");
+        } else {
+          console.log("false");
+          alert("false");
+        }
+      });
     },
     async reload() {
       this.$router.go({ path: "/", force: true });

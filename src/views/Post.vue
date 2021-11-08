@@ -61,6 +61,7 @@ export default {
     title: "",
     category: "",
     description: "",
+    soldout:"",
     price: null,
     deleteIsLoading: false,
     auth: getAuth(),
@@ -82,6 +83,7 @@ export default {
               description: this.description,
               price: this.price,
               user:user.uid,
+              soldout:this.soldout
             });
           this.$router.push("/");
           this.deleteIsLoading = false;
