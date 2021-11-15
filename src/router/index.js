@@ -6,6 +6,7 @@ import Login from "../views/Login.vue"
 import Signup from "../views/Signup.vue"
 import Mypage from "../views/Mypage.vue"
 import Buy from "../views/Buy.vue"
+import Syuppin from "../views/Syuppin.vue"
 
 
 
@@ -43,6 +44,10 @@ const routes = [
     path:'/Buy',
     name:'/Buy',
     component:Buy
+  },{
+    path:'/Syuppin',
+    name:'/Syuppin',
+    component:Syuppin
   }
   
 ]
