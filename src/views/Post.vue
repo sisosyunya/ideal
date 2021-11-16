@@ -83,7 +83,8 @@ export default {
               description: this.description,
               price: this.price,
               user:user.uid,
-              soldout:this.soldout
+              soldout:this.soldout,
+              category: this.category,
             });
           this.$router.push("/");
           this.deleteIsLoading = false;
