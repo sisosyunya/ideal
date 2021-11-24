@@ -45,6 +45,7 @@ export default {
       await createUserWithEmailAndPassword(auth, this.email, this.password)
         .then(() => {
           alert("登録完了");
+          this.$router.push("/");
         })
         .catch(function(error) {
           //失敗の処理
