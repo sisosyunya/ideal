@@ -78,6 +78,7 @@ export default {
           console.log(errorMessage);
           // alert("ログインに失敗しました");
         });
+        // ああ
     },
     async googleSignin() {
       const provider = new GoogleAuthProvider();
