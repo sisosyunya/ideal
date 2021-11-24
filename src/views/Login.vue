@@ -68,6 +68,7 @@ export default {
         .then(() => {
           //成功時の処理
           alert("ログイン完了");
+          this.$router.push("/");
         })
         .catch(function(error) {
           //失敗の処理
