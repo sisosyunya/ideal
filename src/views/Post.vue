@@ -83,7 +83,6 @@ export default {
               description: this.description,
               price: this.price,
               user:user.uid,
-              soldout:this.soldout,
               category: this.category,
             });
           this.$router.push("/");
