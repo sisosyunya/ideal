@@ -36,7 +36,7 @@ import {
   doc,
   deleteDoc,
   updateDoc,
-  collection,
+  arrayUnion
 } from "firebase/firestore";
 import { db } from "../main";
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
@@ -63,20 +63,24 @@ export default {
       this.$router.go({ path: "/", force: true });
       this.deleteIsLoading = false;
     },
-    async Makenew() {
+    async Makenew(auth) {
       this.Making = false;
       this.isModal = true;
       this.sold = false;
       const Making = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(Making.data());
-      await updateDoc(collection(db, "ideas", "soldout"), {
-        soldout: this.soldout,
-      });
+      console.log('a')
+      console.log(this.idea)
+      const wash=doc(db,"ideas",this.idea.id);
+      await updateDoc(wash, {
+    buyusers: arrayUnion(auth.uid)
+});
+    
     },
     async checklogin() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
-          this.Makenew;
+          this.Makenew(user);
           console.log("aaa");
         } else {
           console.log("false");

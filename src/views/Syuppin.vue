@@ -15,8 +15,6 @@
   <div class="container">
     <v-card v-for="(idea, i) in ideas" :key="i" :idea="idea" />
   </div>
-
-  <button class="btn" v-on:click="getttt">チェック</button>
 </template>
 <script>
 import { getDocs, collection, where, query } from "@firebase/firestore";
@@ -35,13 +33,13 @@ export default {
     category: "",
     auth: getAuth(),
   }),
-  //   mounted() {
-  //     this.getttt();
-  //   },
+    mounted() {
+      this.getttting();
+    },
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!完成したらmountedにしてボタンを消す!!!!!!!!!!!!!!!!!!!!!!!
   methods: {
-    async getIdea(user) {
+    async getIdea2(user) {
       const uid = user.uid;
       console.log("foiajoifal");
       const q = query(collection(db, "ideas"), where("user", "==", uid));
@@ -52,10 +50,10 @@ export default {
         console.log("aaaa");
       });
     },
-    async getttt() {
+    async getttting() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
-          this.getIdea(user);
+          this.getIdea2(user);
           console.log("iiibuigiii");
         } else {
           console.log("rrrrr");

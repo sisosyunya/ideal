@@ -68,7 +68,8 @@ export default {
     uid: null,
     coment: "",
     checklogin: true,
-    isModal:false
+    isModal:false,
+    buyusers:[]
   }),
   mounted() {},
   methods: {
@@ -84,11 +85,12 @@ export default {
               price: this.price,
               user:user.uid,
               category: this.category,
+              buyusers:this.buyusers
             });
           this.$router.push("/");
           this.deleteIsLoading = false;
           this.uid = user.uid;
-          this.addIdea;
+          // this.addIdea;
           console.log("true");
           // ...
         } else {

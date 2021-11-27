@@ -38,20 +38,19 @@
 </template>
 <script>
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc,collection } from '@firebase/firestore';
-import {db} from "../main"
+// import { addDoc,collection } from 'firebase/firestore';
+// import {db} from "../main"
 export default {
   data: () => ({
-    uid:null,
+    // uid:null,
+    auth:getAuth(),
   }),
   methods: {
-    async doSignup(user) {
-      const uid=user.uid;
-      const auth = getAuth();
-      await createUserWithEmailAndPassword(auth, this.email, this.password)
+    async doSignup() {
+      await createUserWithEmailAndPassword(this.auth, this.email, this.password)
         .then(() => {
           alert("登録完了");
-          this.addUser(user);
+          // this.addUser();
           console.log('azfa');
           this.$router.push("/");
         })
@@ -64,13 +63,13 @@ export default {
           alert("登録できませんでした");
         });
     },
-    async addUser(user){
-        await addDoc(collection(db,"users"),{
-          user:this.uid,
-        });
-          console.log();('dekita');
-          this.uid=user.uid
-  }
+  //   async addUser(userCredential){
+  //     const user=userCredential.uid;
+  //       await addDoc(collection(db,"users"),{
+  //         userid:user.uid,
+  //       });
+  //         console.log('dekita');
+  // }
 }
 }
 </script>
