@@ -13,7 +13,7 @@
     <div class="space"></div>
     <p>タイトル</p>
     <input class="title" v-model="title" placeholder="タイトル" />
-    <div class='counter'>{{title.length}}/30</div>
+    <div class="counter">{{ title.length }}/30</div>
     <p>カテゴリ</p>
     <select v-model="category" class="category">
       <option disabled value="">選択してください▼</option>
@@ -26,7 +26,7 @@
       v-model="description"
       placeholder="詳細"
     ></textarea>
-    <div class="counter">{{description.length}}/1000</div>
+    <div class="counter">{{ description.length }}/1000</div>
     <p>販売価格</p>
     <input class="price" v-model="price" placeholder="価格" type="number" />
     <button class="btn" @click="confirm_auth" :disabled="deleteIsLoading">
@@ -63,53 +63,62 @@ export default {
     title: "",
     category: "",
     description: "",
-    soldout:"",
+    soldout: "",
     price: null,
     deleteIsLoading: false,
     auth: getAuth(),
     uid: null,
     coment: "",
     checklogin: true,
-    isModal:false,
-    buyusers:[]
+    isModal: false,
+    buyusers: [],
   }),
   mounted() {},
-  watch:{
-    title(title){
-      this.title=this.Checkwords(title)
+  watch: {
+    title(title) {
+      this.title = this.Checkwords(title);
     },
-    description(description){
-      this.description=this.Checkdescription(description)
+    description(description) {
+      this.description = this.Checkdescription(description);
     },
   },
   methods: {
     //ここで文字数制限してます
-    Checkwords(title){
-      return title.length >30? title.slice(0,-1):title;
+    Checkwords(title) {
+      return title.length > 30 ? title.slice(0, -1) : title;
     },
-    Checkdescription(description){
-      return description.length>1000? description.slice(0,-1):description;
+    Checkdescription(description) {
+      return description.length > 1000 ? description.slice(0, -1) : description;
     },
-//この関数でログインしてたら投稿できるようにしてる
+    //この関数でログインしてたら投稿できるようにしてる
     async confirm_auth() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          (this.deleteIsLoading = true),
-            addDoc(collection(db, "ideas"), {
-              title: this.title,
-              description: this.description,
-              price: this.price,
-              user:user.uid,
-              category: this.category,
-              buyusers:this.buyusers
-            });
-          this.$router.push("/");
-          this.deleteIsLoading = false;
-          this.uid = user.uid;
-          // this.addIdea;
-          console.log("true");
+          if (!this.title) {
+            alert("タイトルを入力してください");
+          } 
+          else if (!this.description){
+            alert('説明を入力してください');
+          }
+          else if(!this.price){
+            alert('価格を設定してください')
+          }
+          else {
+            (this.deleteIsLoading = true),
+              addDoc(collection(db, "ideas"), {
+                title: this.title,
+                description: this.description,
+                price: this.price,
+                user: user.uid,
+                category: this.category,
+                buyusers: this.buyusers,
+              });
+            this.$router.push("/");
+            this.deleteIsLoading = false;
+            this.uid = user.uid;
+            // this.addIdea;
+            console.log("true");
+          }
           // ...
         } else {
           // User is signed out
@@ -118,14 +127,13 @@ export default {
           console.log("false");
         }
       });
-      this.isModal=true
+      this.isModal = true;
     },
     deletetete() {
-      this.isModal=!this.isModal
+      this.isModal = !this.isModal;
     },
   },
 };
-
 </script>
 
 <style scoped>
@@ -261,12 +269,12 @@ input.price {
   padding-bottom: 10px;
   margin-top: 10px;
 }
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
   .btn {
     margin-left: 30%;
   }
 }
-@media(max-width: 670px) {
+@media (max-width: 670px) {
   .btn {
     margin-left: 12%;
   }
