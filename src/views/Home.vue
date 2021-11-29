@@ -137,19 +137,40 @@ select.category {
 
 .title {
   text-align: left;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 600;
   color: #606060;
-  margin-left: 10%;
+  margin-left: 2%;
 }
 
 main {
-  display: flex;
-  margin-left: 60%;
+  display: block;
+  margin-left: 75%;
+  margin-bottom: 12px;
 }
 
 ::v-deep .card {
   transition: 0.3s;
+}
+
+@media(max-width: 670px) {
+  .container {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  main {
+    margin-left: 70%;
+  }
+}
+@media(max-width: 1024px) {
+  main {
+    display: block;
+    margin-left: 80%;
+  }
+  .title {
+    margin-left: 6%;
+  }
 }
 </style>
 
