@@ -7,10 +7,11 @@
     <router-link to="/">トップ</router-link> |
     <router-link to="/post">アイデアをだす</router-link> |
     <router-link to="/home">アイデアをみる</router-link> |
-    <router-link to="/login">ログイン</router-link> |
     <router-link to="/mypage">マイページ</router-link> |
+    <router-link to="/login">ログイン</router-link> |
     <br>
       <router-link to="/buy">購入した商品</router-link> |
+      <router-link to="syuppin">出品した商品</router-link> |
   </div>
   <div class="container">
     <toukou v-for="(idea, i) in ideas" :key="i" :idea="idea" />
