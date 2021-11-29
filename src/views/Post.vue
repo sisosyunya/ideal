@@ -94,14 +94,18 @@ export default {
     async confirm_auth() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
+
           if (!this.title) {
             alert("タイトルを入力してください");
           } 
           else if (!this.description){
-            alert('説明を入力してください');
+            alert('内容を入力してください');
           }
           else if(!this.price){
             alert('価格を設定してください')
+          }
+          else if(!this.category){
+            alert('カテゴリを選択してください')
           }
           else {
             (this.deleteIsLoading = true),
