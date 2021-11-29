@@ -135,14 +135,14 @@ input {
 input.email {
   padding: 5px 10px;
   font-size: 12px;
-  width: 70%;
+  width: 65%;
   box-sizing: border-box;
   margin-left: 20%
 }
 input.password {
   padding: 5px 10px;
   font-size: 12px;
-  width: 70%;
+  width: 65%;
   box-sizing: border-box;
   margin-left: 20%
 }
@@ -212,6 +212,37 @@ input.password {
   border: solid 1px #606060;
   transition: 0.3s;
   float: left;
+}
+@media(max-width: 1024px) {
+  .login {
+    width: 55%;
+  }
+}
+
+@media(max-width: 670px) {
+  .login {
+    width: 80%;
+    height: 580px;
+  }
+  .iconArea {
+    margin-left: 30%;
+  }
+  .btn {
+    margin-left: 28%;
+  }
+  .mataha p {
+    margin-left: -3%;
+  }
+  .google {
+    width: 90%;
+    margin-left: 7%;
+  }
+  .signupbtn {
+    margin-left: 27%;
+  }
+  .logout {
+    margin-left: 27%;
+  }
 }
 
 
