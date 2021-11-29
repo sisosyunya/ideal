@@ -23,7 +23,7 @@
 </template>
 <script>
 import { getDocs, collection, where, query } from "@firebase/firestore";
-import {SoldVCard } from "@/components/SoldVCard.vue";
+import SoldVCard  from "@/components/SoldVCard.vue";
 import { db } from "../main";
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
 
