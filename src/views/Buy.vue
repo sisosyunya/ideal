@@ -25,7 +25,7 @@ import { db } from "../main";
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
 
 export default {
-  name: "Mypage",
+  name: "Buy",
   components: {
     VCard,
   },

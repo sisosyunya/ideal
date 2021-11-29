@@ -15,7 +15,7 @@
         <h2 class="modal__title">{{ idea.title }}</h2>
         <p>価格</p>
         <h3 class="modal__price">{{ idea.price }}</h3>
-        <button class="modal__buy" @click="checklogin">購入</button>
+        <button class="modal__buy" @click="checklogin">内容を見る</button>
       </div>
       <div class="modaling modal" v-show="Making === false">
         <h2 class="modal__title_2">{{ idea.title }}</h2>
@@ -33,8 +33,6 @@
 import {
   getDoc,
   doc,
-  updateDoc,
-  arrayUnion
 } from "firebase/firestore";
 import { db } from "../main";
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
@@ -43,10 +41,10 @@ export default {
   data: () => ({
     isModal: false,
     deleteIsLoading: false,
-    Making: true,
+    Making: false,
     sold: true,
-    auth: getAuth(),
     soldout: "",
+    auth:getAuth(),
   }),
   // ここから下はしようしていない←なにこれ
   methods: {
@@ -55,24 +53,17 @@ export default {
       const docSnap = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(docSnap.data());
     },
-    async Makenew(auth) {
+    async Makenew() {
       this.Making = false;
       this.isModal = true;
-      this.sold = false;
       const Making = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(Making.data());
       console.log('a')
-      console.log(this.idea)
-      const wash=doc(db,"ideas",this.idea.id);
-      await updateDoc(wash, {
-    buyusers: arrayUnion(auth.uid)
-});
-    
     },
     async checklogin() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
-          this.Makenew(user);
+          this.Makenew();
           console.log("aaa");
         } else {
           console.log("false");
@@ -82,9 +73,9 @@ export default {
     },
     async reload() {
       this.$router.go({ path: "/", force: true });
-    },
-  },
-};
+    }
+}
+}
 </script>
 <style scoped>
 .card {

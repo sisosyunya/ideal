@@ -13,19 +13,19 @@
       <router-link to="/buy">購入した商品</router-link> |
   </div>
   <div class="container">
-    <v-card v-for="(idea, i) in ideas" :key="i" :idea="idea" />
+    <toukou v-for="(idea, i) in ideas" :key="i" :idea="idea" />
   </div>
 </template>
 <script>
 import { getDocs, collection, where, query } from "@firebase/firestore";
-import VCard from "../components/VCard.vue";
+import Toukou from "../components/Toukou.vue";
 import { db } from "../main";
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
 
 export default {
   name: "Mypage",
   components: {
-    VCard,
+    Toukou,
   },
   data: () => ({
     ideas: [],

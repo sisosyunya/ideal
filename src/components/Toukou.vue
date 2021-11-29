@@ -15,7 +15,7 @@
         <h2 class="modal__title">{{ idea.title }}</h2>
         <p>価格</p>
         <h3 class="modal__price">{{ idea.price }}</h3>
-        <button class="modal__buy" @click="checklogin">購入</button>
+        <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
       </div>
       <div class="modaling modal" v-show="Making === false">
         <h2 class="modal__title_2">{{ idea.title }}</h2>
@@ -33,6 +33,7 @@
 import {
   getDoc,
   doc,
+  deleteDoc,
   updateDoc,
   arrayUnion
 } from "firebase/firestore";
@@ -54,6 +55,12 @@ export default {
     async fetchIdea() {
       const docSnap = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(docSnap.data());
+    },
+    async deleteIdea() {
+      this.deleteIsLoading = true;
+      await deleteDoc(doc(db, "ideas", this.idea.id));
+      this.$router.go({ path: "/", force: true });
+      this.deleteIsLoading = false;
     },
     async Makenew(auth) {
       this.Making = false;
