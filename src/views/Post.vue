@@ -83,12 +83,14 @@ export default {
     },
   },
   methods: {
+    //ここで文字数制限してます
     Checkwords(title){
       return title.length >30? title.slice(0,-1):title;
     },
     Checkdescription(description){
       return description.length>1000? description.slice(0,-1):description;
     },
+//この関数でログインしてたら投稿できるようにしてる
     async confirm_auth() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
