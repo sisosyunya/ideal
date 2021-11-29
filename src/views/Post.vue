@@ -13,6 +13,7 @@
     <div class="space"></div>
     <p>タイトル</p>
     <input class="title" v-model="title" placeholder="タイトル" />
+    <div class='counter'>{{title.length}}/30</div>
     <p>カテゴリ</p>
     <select v-model="category" class="category">
       <option disabled value="">選択してください▼</option>
@@ -25,6 +26,7 @@
       v-model="description"
       placeholder="詳細"
     ></textarea>
+    <div class="counter">{{description.length}}/100</div>
     <p>販売価格</p>
     <input class="price" v-model="price" placeholder="価格" type="number" />
     <button class="btn" @click="confirm_auth" :disabled="deleteIsLoading">
@@ -72,6 +74,14 @@ export default {
     buyusers:[]
   }),
   mounted() {},
+  // computed:{
+  //   overwords:function () {
+  //     if(this.title.length > 100){
+  //       alert('100字以内で入力してください')
+  //     }
+  //   }
+
+  // },
   methods: {
     async confirm_auth() {
       onAuthStateChanged(this.auth, (user) => {
@@ -107,18 +117,7 @@ export default {
     },
   },
 };
-// const auth = getAuth();
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     // User is signed in, see docs for a list of available properties
-//     // https://firebase.google.com/docs/reference/js/firebase.User
-//     const uid = user.uid;
-//     // ...
-//   } else {
-//     // User is signed out
-//     // ...
-//   }
-// });
+
 </script>
 
 <style scoped>
