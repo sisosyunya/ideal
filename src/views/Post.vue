@@ -149,7 +149,7 @@ textarea {
   margin-bottom: 80px;
 }
 .space {
-  height: 40px;
+  height: 30px;
 }
 .post p {
   text-align: left;
@@ -158,6 +158,14 @@ textarea {
   color: #606060;
   margin-left: 10%;
   margin-top: 20px;
+}
+.counter {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  color: #606060;
+  margin-left: 85%;
+  margin-top: 0px;
 }
 input.title {
   width: 78%;
@@ -190,6 +198,8 @@ input.price {
   background-color: #36d9ba;
   border: none;
   transition: 0.3s;
+  margin-top: 0px;
+  margin-left: 40%;
 }
 .btn:hover {
   transform: translateY(-5px);
@@ -242,5 +252,15 @@ input.price {
 .checkdayo a {
   padding-bottom: 10px;
   margin-top: 10px;
+}
+@media(max-width: 1024px) {
+  .btn {
+    margin-left: 30%;
+  }
+}
+@media(max-width: 670px) {
+  .btn {
+    margin-left: 12%;
+  }
 }
 </style>
