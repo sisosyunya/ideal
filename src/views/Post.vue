@@ -101,11 +101,11 @@ export default {
           else if (!this.description){
             alert('内容を入力してください');
           }
+            else if(!this.category){
+              alert('カテゴリを選択してください')
+            }
           else if(!this.price){
             alert('価格を設定してください')
-          }
-          else if(!this.category){
-            alert('カテゴリを選択してください')
           }
           else {
             (this.deleteIsLoading = true),
