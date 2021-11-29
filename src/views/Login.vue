@@ -17,20 +17,12 @@
 
     <div class="mailArea">
       <p>メールアドレス</p>
-      <tr>
-        <td>
-          <input class="email" type="email" v-model="email" />
-        </td>
-      </tr>
+      <input class="email" type="email" v-model="email" />
     </div>
 
     <div class="passwordArea">
       <p>パスワード</p>
-      <tr>
-        <td>
-          <input class="password" type="password" v-model="password" />
-        </td>
-      </tr>
+      <input class="password" type="password" v-model="password" />
     </div>
 
     <button class="btn" v-on:click="doLogin">ログイン</button>
@@ -143,12 +135,16 @@ input {
 input.email {
   padding: 5px 10px;
   font-size: 12px;
-  width: 310px;
+  width: 70%;
+  box-sizing: border-box;
+  margin-left: 20%
 }
 input.password {
   padding: 5px 10px;
   font-size: 12px;
-  width: 310px;
+  width: 70%;
+  box-sizing: border-box;
+  margin-left: 20%
 }
 .btn {
   padding: 8px 40px;
@@ -195,7 +191,6 @@ input.password {
 .signupbtn {
   padding: 8px 40px;
   margin-top: 25px;
-  margin-bottom: 100px;
   margin-left: 23%;
   border-radius: 30px;
   font-weight: 600;
@@ -218,4 +213,6 @@ input.password {
   transition: 0.3s;
   float: left;
 }
+
+
 </style>
