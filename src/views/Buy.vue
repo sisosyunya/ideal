@@ -17,6 +17,8 @@
     <v-card v-for="(idea, i) in ideas" :key="i" :idea="idea" />
   </div>
 
+  
+
 </template>
 <script>
 import { getDocs, collection, where, query } from "@firebase/firestore";
