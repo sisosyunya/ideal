@@ -151,5 +151,20 @@ main {
 ::v-deep .card {
   transition: 0.3s;
 }
+
+@media(max-width: 670px) {
+  .container {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .title {
+    font-size: 12px;
+  }
+  main {
+    display: block;
+    margin-left: 70%;
+  }
+}
 </style>
 
