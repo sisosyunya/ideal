@@ -26,7 +26,7 @@
       v-model="description"
       placeholder="詳細"
     ></textarea>
-    <div class="counter">{{description.length}}/100</div>
+    <div class="counter">{{description.length}}/1000</div>
     <p>販売価格</p>
     <input class="price" v-model="price" placeholder="価格" type="number" />
     <button class="btn" @click="confirm_auth" :disabled="deleteIsLoading">
@@ -74,15 +74,21 @@ export default {
     buyusers:[]
   }),
   mounted() {},
-  // computed:{
-  //   overwords:function () {
-  //     if(this.title.length > 100){
-  //       alert('100字以内で入力してください')
-  //     }
-  //   }
-
-  // },
+  watch:{
+    title(title){
+      this.title=this.Checkwords(title)
+    },
+    description(description){
+      this.description=this.Checkdescription(description)
+    },
+  },
   methods: {
+    Checkwords(title){
+      return title.length >30? title.slice(0,-1):title;
+    },
+    Checkdescription(description){
+      return description.length>1000? description.slice(0,-1):description;
+    },
     async confirm_auth() {
       onAuthStateChanged(this.auth, (user) => {
         if (user) {
