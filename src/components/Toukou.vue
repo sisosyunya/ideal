@@ -15,6 +15,8 @@
         <h2 class="modal__title">{{ idea.title }}</h2>
         <p>価格</p>
         <h3 class="modal__price">{{ idea.price }}</h3>
+        <p>売れた数</p>
+        {{ idea.buyusers.length }}
         <button @click="deleteIdea" :disabled="deleteIsLoading">削除</button>
       </div>
       <div class="modaling modal" v-show="Making === false">
@@ -34,11 +36,11 @@ import {
   getDoc,
   doc,
   deleteDoc,
-  updateDoc,
-  arrayUnion
+  // updateDoc,
+  // arrayUnion,
 } from "firebase/firestore";
 import { db } from "../main";
-import { getAuth, onAuthStateChanged } from "@firebase/auth";
+import { getAuth,  } from "@firebase/auth";
 export default {
   props: ["idea"],
   data: () => ({
@@ -48,6 +50,7 @@ export default {
     sold: true,
     auth: getAuth(),
     soldout: "",
+    // arraylength: 2,
   }),
   // ここから下はしようしていない←なにこれ
   methods: {
@@ -55,6 +58,7 @@ export default {
     async fetchIdea() {
       const docSnap = await getDoc(doc(db, "ideas", this.idea.id));
       console.log(docSnap.data());
+      console.log("aa");
     },
     async deleteIdea() {
       this.deleteIsLoading = true;
@@ -62,31 +66,32 @@ export default {
       this.$router.go({ path: "/", force: true });
       this.deleteIsLoading = false;
     },
-    async Makenew(auth) {
-      this.Making = false;
-      this.isModal = true;
-      this.sold = false;
-      const Making = await getDoc(doc(db, "ideas", this.idea.id));
-      console.log(Making.data());
-      console.log('a')
-      console.log(this.idea)
-      const wash=doc(db,"ideas",this.idea.id);
-      await updateDoc(wash, {
-    buyusers: arrayUnion(auth.uid)
-});
-    
-    },
-    async checklogin() {
-      onAuthStateChanged(this.auth, (user) => {
-        if (user) {
-          this.Makenew(user);
-          console.log("aaa");
-        } else {
-          console.log("false");
-          alert("false");
-        }
-      });
-    },
+    // async Makenew(auth) {
+    //   this.Making = false;
+    //   this.isModal = true;
+    //   this.sold = false;
+    //   const Making = await getDoc(doc(db, "ideas", this.idea.id));
+    //   console.log(Making.data());
+    //   console.log("i");
+
+    //   // const howsold=idea.buyusers.length
+    //   const wash = doc(db, "ideas", this.idea.id);
+    //   await updateDoc(wash, {
+    //     buyusers: arrayUnion(auth.uid),
+    //   });
+    // },
+    // async checklogin() {
+    //   onAuthStateChanged(this.auth, (user) => {
+    //     if (user) {
+    //       this.Makenew(user);
+    //       console.log("aaa");
+
+    //     } else {
+    //       console.log("false");
+    //       alert("false");
+    //     }
+    //   });
+    // },
     async reload() {
       this.$router.go({ path: "/", force: true });
     },

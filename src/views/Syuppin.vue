@@ -10,7 +10,6 @@
     <router-link to="/mypage">マイページ</router-link> |
     <router-link to="/login">ログイン</router-link> |
     <br>
-      <router-link to="/buy">購入した商品</router-link> |
       <router-link to="syuppin">出品した商品</router-link> |
   </div>
   <div class="container">
@@ -48,7 +47,7 @@ export default {
       const querySnapshot =await getDocs(q);
       querySnapshot.forEach((doc) => {
         this.ideas.push({ ...doc.data(), id: doc.id });
-        console.log("aaaa");
+        console.log({ ...doc.data(), id: doc.id });
       });
     },
     async getttting() {
