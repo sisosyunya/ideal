@@ -36,8 +36,6 @@ import {
   getDoc,
   doc,
   deleteDoc,
-  // updateDoc,
-  // arrayUnion,
 } from "firebase/firestore";
 import { db } from "../main";
 import { getAuth,  } from "@firebase/auth";
@@ -66,32 +64,6 @@ export default {
       this.$router.go({ path: "/", force: true });
       this.deleteIsLoading = false;
     },
-    // async Makenew(auth) {
-    //   this.Making = false;
-    //   this.isModal = true;
-    //   this.sold = false;
-    //   const Making = await getDoc(doc(db, "ideas", this.idea.id));
-    //   console.log(Making.data());
-    //   console.log("i");
-
-    //   // const howsold=idea.buyusers.length
-    //   const wash = doc(db, "ideas", this.idea.id);
-    //   await updateDoc(wash, {
-    //     buyusers: arrayUnion(auth.uid),
-    //   });
-    // },
-    // async checklogin() {
-    //   onAuthStateChanged(this.auth, (user) => {
-    //     if (user) {
-    //       this.Makenew(user);
-    //       console.log("aaa");
-
-    //     } else {
-    //       console.log("false");
-    //       alert("false");
-    //     }
-    //   });
-    // },
     async reload() {
       this.$router.go({ path: "/", force: true });
     },
