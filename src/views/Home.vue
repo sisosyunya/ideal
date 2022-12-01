@@ -150,9 +150,9 @@ main {
   margin-bottom: 12px;
 }
 
-::v-deep .card {
-  transition: 0.3s;
-}
+// ::deep(.card) {
+//   transition: 0.3s;
+// }
 
 @media(max-width: 670px) {
   .container {
